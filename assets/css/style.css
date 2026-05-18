@@ -1,0 +1,210 @@
+/* ==========================================================================
+   1. DESIGN SYSTEM VARIABLES & TOKENS
+   ========================================================================== */
+:root {
+    /* --- Typography (Google Fonts ready) --- */
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    
+    /* --- Spacing Scale (8px Base Unit) --- */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-8: 48px;
+    --space-10: 64px;
+    
+    /* --- Border Radius --- */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 16px;
+    --radius-full: 9999px;
+
+    /* --- Transitions --- */
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* --- Theme: Light Mode Tokens (Default) --- */
+    --bg-primary: #fcfbfa;
+    --bg-secondary: #f4f1eb;
+    --bg-surface: #ffffff;
+    --border-color: #e4dfd5;
+    
+    --text-primary: #1c1917;
+    --text-secondary: #44403c;
+    --text-muted: #78716c;
+    
+    --brand-primary: #722f37;       /* Wine Burgundy */
+    --brand-primary-hover: #5c232a;
+    --brand-secondary: #2c4c38;     /* Deep Forest Green */
+    --brand-accent: #d4af37;        /* Warm Gold */
+    
+    --error: #dc2626;
+    --success: #16a34a;
+    --focus-ring: #722f37;
+}
+
+/* --- Theme: Dark Mode Tokens --- */
+@media (prefers-color-scheme: dark) {
+    :root[data-theme="auto"], :root[data-theme="dark"] {
+        --bg-primary: #12100e;
+        --bg-secondary: #1a1715;
+        --bg-surface: #1e1b18;
+        --border-color: #2e2924;
+        
+        --text-primary: #f5f5f4;
+        --text-secondary: #d6d3d1;
+        --text-muted: #a8a29e;
+        
+        --brand-primary: #a8434f;
+        --brand-primary-hover: #c25461;
+        --brand-secondary: #436d53;
+        --brand-accent: #e5c158;
+        
+        --focus-ring: #a8434f;
+    }
+}
+
+/* Explicit data-theme overrides for the theme toggle switch */
+:root[data-theme="light"] {
+    --bg-primary: #fcfbfa;
+    --bg-secondary: #f4f1eb;
+    --bg-surface: #ffffff;
+    --border-color: #e4dfd5;
+    --text-primary: #1c1917;
+    --text-secondary: #44403c;
+    --text-muted: #78716c;
+    --brand-primary: #722f37;
+    --brand-primary-hover: #5c232a;
+    --focus-ring: #722f37;
+}
+:root[data-theme="dark"] {
+    --bg-primary: #12100e;
+    --bg-secondary: #1a1715;
+    --bg-surface: #1e1b18;
+    --border-color: #2e2924;
+    --text-primary: #f5f5f4;
+    --text-secondary: #d6d3d1;
+    --text-muted: #a8a29e;
+    --brand-primary: #a8434f;
+    --brand-primary-hover: #c25461;
+    --focus-ring: #a8434f;
+}
+
+/* ==========================================================================
+   2. GLOBAL RESETS & ACCESSIBILITY BASE
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* RTL Global Adjustments */
+[dir="rtl"] {
+    text-align: right;
+}
+
+/* WCAG 2.1 Focus Indicator Rule */
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+}
+
+/* Remove animations for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, ::before, ::after {
+        animation-delay: -1ms !important;
+        animation-duration: -1ms !important;
+        animation-iteration-count: 1 !important;
+        background-attachment: initial !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0s !important;
+        transition-delay: 0s !important;
+    }
+}
+
+/* ==========================================================================
+   3. REUSABLE UI COMPONENTS (Atomic Blocks)
+   ========================================================================== */
+/* Typography Headings */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Global Navigation Header Blueprint */
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-4) var(--space-6);
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Buttons System */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-body);
+    font-weight: 600;
+    padding: var(--space-3) var(--space-5);
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.btn-primary {
+    background-color: var(--brand-primary);
+    color: #ffffff;
+}
+.btn-primary:hover {
+    background-color: var(--brand-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border-color: var(--brand-primary);
+    color: var(--brand-primary);
+}
+.btn-secondary:hover {
+    background-color: var(--bg-secondary);
+}
+
+/* Skeleton Loading State Utilities */
+.skeleton {
+    background-color: var(--border-color);
+    background-image: linear-gradient(90deg, var(--border-color) 25%, var(--bg-secondary) 50%, var(--border-color) 75%);
+    background-size: 200% 100%;
+    animation: loading-shimmer 1.5s infinite;
+    border-radius: var(--radius-sm);
+}
+
+@keyframes loading-shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

@@ -1,0 +1,922 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vintara | Rare Wines Worth Collecting</title>
+  <link rel="icon" href="../assets/images/brand-logo.png">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LUCIDE -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+
+      theme: {
+        extend: {
+
+          colors: {
+            wine: '#6B1F24',
+            gold: '#D4B483',
+            darkbg: '#0C0908',
+            card: '#171212',
+            cream: '#F7F3EE',
+          },
+
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+    *{
+      transition:
+      background-color .3s ease,
+      color .3s ease,
+      border-color .3s ease;
+    }
+
+    body{
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass{
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-gradient{
+      background:
+      linear-gradient(
+      to top,
+      rgba(0,0,0,.95),
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.15)
+      );
+    }
+
+    .article-content h2{
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      margin-top: 5rem;
+      margin-bottom: 2rem;
+      line-height: 1;
+    }
+
+    .article-content p{
+      font-size: 1.1rem;
+      line-height: 2;
+      color: rgb(75 85 99);
+    }
+
+    .dark .article-content p{
+      color: rgb(209 213 219);
+    }
+
+    .article-content blockquote{
+      border-left: 4px solid #6B1F24;
+      padding-left: 2rem;
+      margin: 4rem 0;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .dark .article-content blockquote{
+      border-color: #D4B483;
+    }
+
+    .article-content img{
+      border-radius: 2rem;
+      margin: 3rem 0;
+    }
+
+    .collection-card:hover{
+      transform: translateY(-8px);
+    }
+
+    /* ── NAVBAR ACTIVE STATE ── */
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #6B1F24;
+      transition: width .3s ease;
+    }
+    .dark .nav-link::after {
+      background: #C8A97E;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+    }
+    .dark .nav-link.active {
+      color: #C8A97E;
+    }
+    /* ── MOBILE NAV ACTIVE ── */
+    .mobile-nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+      border-left: 3px solid #6B1F24;
+      padding-left: 10px;
+    }
+    .dark .mobile-nav-link.active {
+      color: #C8A97E;
+      border-left-color: #C8A97E;
+    }
+    /* ── FOOTER ── */
+    .footer-divider { border-color: rgba(0,0,0,0.07); }
+    .dark .footer-divider { border-color: rgba(255,255,255,0.08); }
+    .footer-social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.12);
+      transition: background .25s, color .25s, border-color .25s, transform .25s;
+    }
+    .dark .footer-social-btn { border-color: rgba(255,255,255,0.12); }
+    .footer-social-btn:hover {
+      background: #6B1F24; border-color: #6B1F24; color: #fff; transform: translateY(-2px);
+    }
+    .footer-newsletter-input {
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 999px; padding: 12px 20px; outline: none;
+      font-size: 0.875rem; width: 100%; color: inherit; transition: border-color .25s;
+    }
+    .dark .footer-newsletter-input { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .footer-newsletter-input:focus { border-color: #6B1F24; }
+    .dark .footer-newsletter-input:focus { border-color: #C8A97E; }
+    .footer-newsletter-input::placeholder { color: #9ca3af; }  </style>
+
+</head>
+
+<body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50">
+
+    <nav class="glass bg-white/70 dark:bg-black/20 border-b border-black/5 dark:border-white/10">
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="h-20 flex items-center justify-between">
+
+          <!-- LOGO -->
+          <a href="../index.html"
+            class="font-heading text-4xl tracking-wide flex items-center gap-2">
+            <img src="../assets/images/brand-logo.png" alt="brand-logo" style="width:44px;height:auto;">
+            <span>Vintara</span>
+          </a>
+
+          <!-- MENU -->
+          <div class="hidden lg:flex items-center gap-10 text-sm">
+
+            <a href="../index.html" class="nav-link">
+              Home
+            </a>
+
+            <a href="./home.html" class="nav-link">
+              Home 2
+            </a>
+
+            <a href="./about.html" class="nav-link">
+              About
+            </a>
+
+            <a href="./service.html" class="nav-link">
+              Service
+            </a>
+
+            <a href="./blog.html" class="nav-link active">
+              Blog
+            </a>
+
+            <a href="./contact.html" class="nav-link">
+              Contact
+            </a>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="flex items-center gap-4">
+
+            <!-- TOGGLE -->
+            <button id="themeToggle"
+              class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105">
+              <i data-lucide="moon"></i>
+            </button>
+
+            <!-- LOGIN BUTTON -->
+            <a href="./login.html"
+              class="hidden md:block bg-wine hover:bg-[#54181c] text-white px-7 py-3 rounded-full text-sm font-medium">
+              Login
+            </a>
+
+            <!-- MOBILE MENU BTN -->
+            <button id="menuBtn"
+              class="lg:hidden w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
+              <i data-lucide="menu"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden bg-white dark:bg-[#120d0d] border-b border-black/5 dark:border-white/10">
+
+      <div class="px-6 py-6 flex flex-col gap-5 text-sm">
+
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="./home.html" class="mobile-nav-link">Home 2</a>
+        <a href="./about.html" class="mobile-nav-link">About</a>
+        <a href="./service.html" class="mobile-nav-link">Service</a>
+        <a href="./blog.html" class="mobile-nav-link active">Blog</a>
+        <a href="./contact.html" class="mobile-nav-link">Contact</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="relative h-[95vh] overflow-hidden flex items-end">
+
+    <!-- BG -->
+    <div class="absolute inset-0">
+
+      <img
+        src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop"
+        class="w-full h-full object-cover"
+        alt="">
+
+      <div class="absolute inset-0 hero-gradient"></div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pb-20 w-full">
+
+      <!-- CATEGORY -->
+      <div class="flex items-center gap-4">
+
+        <span class="uppercase tracking-[0.35em] text-gold text-sm">
+
+          Sommelier Notes
+
+        </span>
+
+        <div class="w-16 h-px bg-gold"></div>
+
+      </div>
+
+      <!-- TITLE -->
+      <h1 class="font-heading text-7xl md:text-8xl text-white leading-[0.92] max-w-5xl mt-8">
+
+        Rare Wines
+        Worth Collecting
+
+      </h1>
+
+      <!-- DESC -->
+      <p class="text-gray-300 text-xl leading-relaxed max-w-3xl mt-8">
+
+        Explore legendary vintages,
+        collector-worthy estates,
+        and timeless bottles that continue to shape luxury wine culture around the world.
+
+      </p>
+
+      <!-- META -->
+      <div class="flex flex-wrap items-center gap-8 mt-12">
+
+        <!-- AUTHOR -->
+        <div class="flex items-center gap-4">
+
+          <img
+            src="https://randomuser.me/api/portraits/men/52.jpg"
+            class="w-14 h-14 rounded-full object-cover"
+            alt="">
+
+          <div>
+
+            <h4 class="text-white font-medium">
+              Victor Delacroix
+            </h4>
+
+            <p class="text-gray-400 text-sm mt-1">
+              Chief Sommelier
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- INFO -->
+        <div class="flex items-center gap-6 text-gray-400 text-sm">
+
+          <div class="flex items-center gap-2">
+
+            <i data-lucide="calendar" class="w-4 h-4"></i>
+
+            <span>May 18, 2026</span>
+
+          </div>
+
+          <div class="flex items-center gap-2">
+
+            <i data-lucide="clock-3" class="w-4 h-4"></i>
+
+            <span>12 min read</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ARTICLE -->
+  <section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid lg:grid-cols-[1fr_360px] gap-20">
+
+        <!-- CONTENT -->
+        <article class="article-content">
+
+          <p>
+
+            Rare wines exist at the intersection of craftsmanship,
+            scarcity,
+            history,
+            and emotion.
+            Collectors seek them not merely for prestige,
+            but because exceptional vintages preserve stories that can never be recreated again.
+
+          </p>
+
+          <p class="mt-8">
+
+            The world's most collectible wines often originate from legendary estates with centuries of tradition,
+            where terroir,
+            climate,
+            and meticulous winemaking produce bottles capable of aging beautifully for decades.
+
+          </p>
+
+          <!-- IMAGE -->
+          <img
+            src="https://images.unsplash.com/photo-1547595628-c61a29f496f0?q=80&w=987&auto=format&fit=crop"
+            class="w-full h-[650px] object-cover"
+            alt="">
+
+          <!-- SECTION -->
+          <h2>
+
+            What Makes A Wine Collectible
+
+          </h2>
+
+          <p>
+
+            Not every expensive wine becomes collectible.
+            True collector bottles possess rarity,
+            aging potential,
+            critical acclaim,
+            and cultural significance.
+
+          </p>
+
+          <p class="mt-8">
+
+            Exceptional vintages are often tied to remarkable harvest years where weather conditions aligned perfectly,
+            creating wines with extraordinary structure and complexity.
+
+          </p>
+
+          <!-- QUOTE -->
+          <blockquote>
+
+            “Collectors chase rarity, but they stay for the story inside the bottle.”
+
+          </blockquote>
+
+          <!-- IMAGE -->
+          <img
+            src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=987&auto=format&fit=crop"
+            class="w-full h-[650px] object-cover"
+            alt="">
+
+          <!-- SECTION -->
+          <h2>
+
+            Legendary Regions & Estates
+
+          </h2>
+
+          <p>
+
+            Bordeaux,
+            Burgundy,
+            Tuscany,
+            and Napa Valley remain among the most influential wine regions for collectors worldwide.
+
+          </p>
+
+          <p class="mt-8">
+
+            Estates with consistent excellence often produce wines that appreciate in both cultural and financial value,
+            especially when limited production increases scarcity.
+
+          </p>
+
+          <!-- COLLECTION GRID -->
+          <div class="grid md:grid-cols-2 gap-8 my-16">
+
+            <!-- CARD -->
+            <div class="collection-card bg-white dark:bg-card rounded-[32px] p-10 border border-black/5 dark:border-white/5 duration-300">
+
+              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="map-pinned"></i>
+
+              </div>
+
+              <h3 class="font-heading text-4xl mt-8">
+
+                Bordeaux Classics
+
+              </h3>
+
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed mt-5">
+
+                Historic French estates renowned for structured aging wines.
+
+              </p>
+
+            </div>
+
+            <!-- CARD -->
+            <div class="collection-card bg-white dark:bg-card rounded-[32px] p-10 border border-black/5 dark:border-white/5 duration-300">
+
+              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="gem"></i>
+
+              </div>
+
+              <h3 class="font-heading text-4xl mt-8">
+
+                Rare Collector Editions
+
+              </h3>
+
+              <p class="text-gray-600 dark:text-gray-400 leading-relaxed mt-5">
+
+                Limited-production bottles prized by global collectors.
+
+              </p>
+
+            </div>
+
+          </div>
+
+          <!-- SECTION -->
+          <h2>
+
+            Investing In Fine Wine
+
+          </h2>
+
+          <p>
+
+            Fine wine has increasingly become an alternative investment category,
+            attracting collectors who appreciate both luxury and long-term value growth.
+
+          </p>
+
+          <p class="mt-8">
+
+            However,
+            experienced collectors understand that the emotional and sensory experience of fine wine often matters more than financial appreciation alone.
+
+          </p>
+
+          <!-- IMAGE -->
+          <img
+            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1974&auto=format&fit=crop"
+            class="w-full h-[650px] object-cover"
+            alt="">
+
+          <!-- SECTION -->
+          <h2>
+
+            Building A Personal Collection
+
+          </h2>
+
+          <p>
+
+            The best collections reflect personal taste rather than market trends alone.
+            Many passionate collectors build cellars around memorable regions,
+            travel experiences,
+            or emotional connections to specific wines.
+
+          </p>
+
+          <p class="mt-8">
+
+            Proper storage remains essential.
+            Controlled temperature,
+            humidity,
+            and light conditions preserve wine integrity and ensure graceful aging over time.
+
+          </p>
+
+          <!-- TAGS -->
+          <div class="flex flex-wrap gap-4 mt-16">
+
+            <span class="px-6 py-3 rounded-full bg-white dark:bg-card border border-black/5 dark:border-white/5 text-sm">
+
+              Rare Wines
+
+            </span>
+
+            <span class="px-6 py-3 rounded-full bg-white dark:bg-card border border-black/5 dark:border-white/5 text-sm">
+
+              Collectors
+
+            </span>
+
+            <span class="px-6 py-3 rounded-full bg-white dark:bg-card border border-black/5 dark:border-white/5 text-sm">
+
+              Luxury Wine
+
+            </span>
+
+          </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="space-y-10">
+
+          <!-- AUTHOR -->
+          <div class="bg-white dark:bg-card rounded-[36px] p-10 border border-black/5 dark:border-white/5 sticky top-28">
+
+            <div class="flex flex-col items-center text-center">
+
+              <img
+                src="https://randomuser.me/api/portraits/men/52.jpg"
+                class="w-24 h-24 rounded-full object-cover"
+                alt="">
+
+              <h3 class="font-heading text-4xl mt-6">
+
+                Victor Delacroix
+
+              </h3>
+
+              <p class="text-gray-500 mt-2">
+
+                Chief Sommelier
+
+              </p>
+
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed text-center mt-8">
+
+              Specialist in rare vintages,
+              collector wine culture,
+              and luxury tasting experiences across Europe.
+
+            </p>
+
+            <!-- SOCIAL -->
+            <div class="flex justify-center gap-4 mt-8">
+
+              <button class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
+                <i data-lucide="instagram"></i>
+              </button>
+
+              <button class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
+                <i data-lucide="twitter"></i>
+              </button>
+
+              <button class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
+                <i data-lucide="linkedin"></i>
+              </button>
+
+            </div>
+
+            <!-- MINI CTA -->
+            <div class="bg-cream dark:bg-darkbg rounded-[28px] p-8 mt-10">
+
+              <span class="uppercase tracking-[0.3em] text-xs text-wine dark:text-gold">
+
+                Collector Guide
+
+              </span>
+
+              <h4 class="font-heading text-4xl mt-5">
+
+                Discover Top Investment Wines
+
+              </h4>
+
+              <button
+                class="w-full mt-8 bg-wine hover:bg-[#54181c] text-white py-4 rounded-2xl">
+
+                Explore Guide
+
+              </button>
+
+            </div>
+
+          </div>
+
+        </aside>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- NEWSLETTER -->
+  <section class="pb-28">
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+      <div class="relative rounded-[42px] overflow-hidden p-16 lg:p-24">
+
+        <!-- BG -->
+        <img
+          src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop"
+          class="absolute inset-0 w-full h-full object-cover"
+          alt="">
+
+        <div class="absolute inset-0 bg-black/85"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10 text-center max-w-3xl mx-auto">
+
+          <span class="uppercase tracking-[0.3em] text-gold text-sm">
+
+            Collector Journal
+
+          </span>
+
+          <h2 class="font-heading text-6xl md:text-7xl text-white leading-tight mt-6">
+
+            Receive Rare
+            Wine Insights
+
+          </h2>
+
+          <p class="text-gray-300 text-lg leading-relaxed mt-8">
+
+            Join Vintara’s luxury journal for exclusive sommelier notes,
+            collector recommendations,
+            and rare vintage discoveries.
+
+          </p>
+
+          <!-- FORM -->
+          <div class="flex flex-col md:flex-row gap-4 mt-10">
+
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="flex-1 bg-white/10 border border-white/10 text-white placeholder:text-gray-400 px-6 py-4 rounded-full outline-none">
+
+            <button
+              class="bg-wine hover:bg-[#54181c] text-white px-8 py-4 rounded-full">
+
+              Subscribe
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-[#0d0a0a] border-t footer-divider pt-20 pb-10">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- TOP GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+
+        <!-- COL 1 — BRAND -->
+        <div class="lg:col-span-1">
+
+          <a href="../index.html" class="flex items-center gap-3 font-heading text-3xl tracking-wide">
+            <img src="../assets/images/brand-logo.png" alt="Vintara" style="width:42px;height:auto;">
+            <span>Vintara</span>
+          </a>
+
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mt-5">
+            Curated collections, candlelit evenings,
+            and rare vintages — crafted for
+            the most discerning palate.
+          </p>
+
+        </div>
+
+        <!-- COL 2 — QUICK LINKS -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Quick Links
+          </h4>
+
+          <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-400">
+            <li><a href="../index.html"     class="hover:text-wine dark:hover:text-gold transition-colors">Home</a></li>
+            <li><a href="./about.html"      class="hover:text-wine dark:hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="./service.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Services</a></li>
+            <li><a href="./blog.html"       class="hover:text-wine dark:hover:text-gold transition-colors">Blog</a></li>
+            <li><a href="./booking.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Reservations</a></li>
+            <li><a href="./contact.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+
+        </div>
+
+        <!-- COL 3 — CONTACT -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Contact
+          </h4>
+
+          <ul class="space-y-5 text-sm text-gray-600 dark:text-gray-400">
+
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="text-wine dark:text-gold mt-0.5 shrink-0" style="width:16px;height:16px;"></i>
+              <span>14 Rue du Vin, Bordeaux<br>FR-33000, France</span>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="tel:+33556001234" class="hover:text-wine dark:hover:text-gold transition-colors">+33 556 001 234</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="mailto:hello@vintara.com" class="hover:text-wine dark:hover:text-gold transition-colors">hello@vintara.com</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="clock" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <span>Mon–Sat &nbsp;5 PM – 1 AM</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- COL 4 — NEWSLETTER -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Stay In The Know
+          </h4>
+
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+            Subscribe for exclusive events,
+            new arrivals &amp; sommelier picks.
+          </p>
+
+          <form onsubmit="return false;" class="space-y-3">
+
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="footer-newsletter-input"
+            >
+
+            <button
+              type="submit"
+              class="w-full bg-wine hover:bg-[#54181c] text-white text-sm font-medium py-3 rounded-full transition-colors">
+              Subscribe
+            </button>
+
+          </form>
+
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 flex items-center gap-1.5">
+            <i data-lucide="shield-check" style="width:13px;height:13px;" class="text-wine dark:text-gold"></i>
+            No spam, ever. Unsubscribe anytime.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="border-t footer-divider mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 dark:text-gray-500">
+
+        <p>&copy; 2025 Vintara Wine Bar &amp; Shop. All rights reserved.</p>
+
+        <div class="flex gap-6">
+          <a href="./privacy.html" class="hover:text-wine dark:hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="./terms.html"   class="hover:text-wine dark:hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+
+    lucide.createIcons();
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // DARK MODE
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    if (
+      localStorage.theme === 'dark' ||
+      (
+        !('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+    ) {
+      html.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+
+      html.classList.toggle('dark');
+
+      if(html.classList.contains('dark')){
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+

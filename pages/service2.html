@@ -1,0 +1,1111 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vintara | Private Events</title>
+  <link rel="icon" href="../assets/images/brand-logo.png">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LUCIDE -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+
+      theme: {
+        extend: {
+
+          colors: {
+            wine: '#6B1F24',
+            gold: '#D4B483',
+            darkbg: '#0C0908',
+            card: '#171212',
+            cream: '#F7F3EE',
+          },
+
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+    *{
+      transition:
+      background-color .3s ease,
+      color .3s ease,
+      border-color .3s ease,
+      transform .3s ease;
+    }
+
+    body{
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass{
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-gradient{
+      background:
+      linear-gradient(
+      to right,
+      rgba(0,0,0,.9),
+      rgba(0,0,0,.55),
+      rgba(0,0,0,.2)
+      );
+    }
+
+    .blur-circle{
+      filter: blur(120px);
+    }
+
+    .gallery img{
+      transition: .7s ease;
+    }
+
+    .gallery img:hover{
+      transform: scale(1.05);
+    }
+
+    .event-card:hover{
+      transform: translateY(-8px);
+    }
+
+    /* ── NAVBAR ACTIVE STATE ── */
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #6B1F24;
+      transition: width .3s ease;
+    }
+    .dark .nav-link::after {
+      background: #C8A97E;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+    }
+    .dark .nav-link.active {
+      color: #C8A97E;
+    }
+    /* ── MOBILE NAV ACTIVE ── */
+    .mobile-nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+      border-left: 3px solid #6B1F24;
+      padding-left: 10px;
+    }
+    .dark .mobile-nav-link.active {
+      color: #C8A97E;
+      border-left-color: #C8A97E;
+    }
+    /* ── FOOTER ── */
+    .footer-divider { border-color: rgba(0,0,0,0.07); }
+    .dark .footer-divider { border-color: rgba(255,255,255,0.08); }
+    .footer-social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.12);
+      transition: background .25s, color .25s, border-color .25s, transform .25s;
+    }
+    .dark .footer-social-btn { border-color: rgba(255,255,255,0.12); }
+    .footer-social-btn:hover {
+      background: #6B1F24; border-color: #6B1F24; color: #fff; transform: translateY(-2px);
+    }
+    .footer-newsletter-input {
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 999px; padding: 12px 20px; outline: none;
+      font-size: 0.875rem; width: 100%; color: inherit; transition: border-color .25s;
+    }
+    .dark .footer-newsletter-input { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .footer-newsletter-input:focus { border-color: #6B1F24; }
+    .dark .footer-newsletter-input:focus { border-color: #C8A97E; }
+    .footer-newsletter-input::placeholder { color: #9ca3af; }  </style>
+
+</head>
+
+<body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50">
+
+    <nav class="glass bg-white/70 dark:bg-black/20 border-b border-black/5 dark:border-white/10">
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="h-20 flex items-center justify-between">
+
+          <!-- LOGO -->
+          <a href="../index.html"
+            class="font-heading text-4xl tracking-wide flex items-center gap-2">
+            <img src="../assets/images/brand-logo.png" alt="brand-logo" style="width:44px;height:auto;">
+            <span>Vintara</span>
+          </a>
+
+          <!-- MENU -->
+          <div class="hidden lg:flex items-center gap-10 text-sm">
+
+            <a href="../index.html" class="nav-link">
+              Home
+            </a>
+
+            <a href="./home.html" class="nav-link">
+              Home 2
+            </a>
+
+            <a href="./about.html" class="nav-link">
+              About
+            </a>
+
+            <a href="./service.html" class="nav-link active">
+              Service
+            </a>
+
+            <a href="./blog.html" class="nav-link">
+              Blog
+            </a>
+
+            <a href="./contact.html" class="nav-link">
+              Contact
+            </a>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="flex items-center gap-4">
+
+            <!-- TOGGLE -->
+            <button id="themeToggle"
+              class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105">
+              <i data-lucide="moon"></i>
+            </button>
+
+            <!-- LOGIN BUTTON -->
+            <a href="./login.html"
+              class="hidden md:block bg-wine hover:bg-[#54181c] text-white px-7 py-3 rounded-full text-sm font-medium">
+              Login
+            </a>
+
+            <!-- MOBILE MENU BTN -->
+            <button id="menuBtn"
+              class="lg:hidden w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
+              <i data-lucide="menu"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden bg-white dark:bg-[#120d0d] border-b border-black/5 dark:border-white/10">
+
+      <div class="px-6 py-6 flex flex-col gap-5 text-sm">
+
+        <a href="../index.html" class="mobile-nav-link">Home</a>
+        <a href="./home.html" class="mobile-nav-link">Home 2</a>
+        <a href="./about.html" class="mobile-nav-link">About</a>
+        <a href="./service.html" class="mobile-nav-link active">Service</a>
+        <a href="./blog.html" class="mobile-nav-link">Blog</a>
+        <a href="./contact.html" class="mobile-nav-link">Contact</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-screen overflow-hidden flex items-center">
+
+    <!-- BG -->
+    <div class="absolute inset-0">
+
+      <img
+        src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1974&auto=format&fit=crop"
+        class="w-full h-full object-cover"
+        alt="">
+
+      <div class="absolute inset-0 hero-gradient"></div>
+
+    </div>
+
+    <!-- BLUR -->
+    <div class="absolute top-20 right-20 w-[350px] h-[350px] rounded-full bg-wine/30 blur-circle"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- LEFT -->
+        <div>
+
+          <span class="uppercase tracking-[0.4em] text-gold text-sm">
+
+            Exclusive Luxury Events
+
+          </span>
+
+          <h1 class="font-heading text-7xl md:text-8xl text-white leading-[0.9] mt-8">
+
+            Private Wine
+            <span class="italic text-gold">
+              Events
+            </span>
+
+          </h1>
+
+          <p class="text-gray-300 text-lg leading-relaxed mt-8 max-w-2xl">
+
+            Celebrate unforgettable moments with elegant private wine evenings,
+            luxury gatherings, curated dining,
+            and premium hospitality experiences.
+
+          </p>
+
+          <!-- FEATURES -->
+          <div class="grid sm:grid-cols-2 gap-6 mt-12">
+
+            <!-- ITEM -->
+            <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-[28px] p-6">
+
+              <div class="w-14 h-14 rounded-2xl bg-white/10 text-gold flex items-center justify-center">
+
+                <i data-lucide="party-popper"></i>
+
+              </div>
+
+              <h4 class="font-heading text-3xl text-white mt-6">
+                VIP Events
+              </h4>
+
+            </div>
+
+            <!-- ITEM -->
+            <div class="bg-white/10 backdrop-blur-xl border border-white/10 rounded-[28px] p-6">
+
+              <div class="w-14 h-14 rounded-2xl bg-white/10 text-gold flex items-center justify-center">
+
+                <i data-lucide="sparkles"></i>
+
+              </div>
+
+              <h4 class="font-heading text-3xl text-white mt-6">
+                Luxury Dining
+              </h4>
+
+            </div>
+
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="flex flex-wrap gap-5 mt-12">
+
+            <button
+              class="bg-wine hover:bg-[#54181c] text-white px-8 py-4 rounded-full">
+
+              Reserve Event
+
+            </button>
+
+            <button
+              class="border border-white/20 text-white hover:bg-white hover:text-black px-8 py-4 rounded-full">
+
+              View Packages
+
+            </button>
+
+          </div>
+
+        </div>
+
+        <!-- RIGHT -->
+        <div class="relative">
+
+          <img
+            src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=987&auto=format&fit=crop"
+            class="rounded-[40px] h-[700px] object-cover w-full"
+            alt="">
+
+          <!-- FLOAT -->
+          <div class="absolute -bottom-10 -left-10 bg-white dark:bg-card rounded-[32px] p-8 shadow-2xl w-72">
+
+            <div class="flex items-center justify-between">
+
+              <div>
+
+                <span class="text-sm text-gray-500">
+                  Event Packages
+                </span>
+
+                <h3 class="font-heading text-5xl text-wine dark:text-gold mt-2">
+
+                  From $950
+
+                </h3>
+
+              </div>
+
+              <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="crown"></i>
+
+              </div>
+
+            </div>
+
+            <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+              Elegant private celebrations tailored for unforgettable evenings.
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- EVENT TYPES -->
+  <section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- TITLE -->
+      <div class="text-center max-w-2xl mx-auto">
+
+        <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm">
+
+          Event Experiences
+
+        </span>
+
+        <h2 class="font-heading text-5xl mt-5">
+
+          Curated Luxury Gatherings
+
+        </h2>
+
+      </div>
+
+      <!-- GRID -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+
+        <!-- CARD -->
+        <div class="event-card bg-white dark:bg-card rounded-[36px] p-8 border border-black/5 dark:border-white/5 duration-300">
+
+          <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+            <i data-lucide="wine"></i>
+
+          </div>
+
+          <h3 class="font-heading text-4xl mt-8">
+            Wine Nights
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Elegant tasting evenings with curated premium collections.
+
+          </p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="event-card bg-white dark:bg-card rounded-[36px] p-8 border border-black/5 dark:border-white/5 duration-300">
+
+          <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+            <i data-lucide="heart"></i>
+
+          </div>
+
+          <h3 class="font-heading text-4xl mt-8">
+            Weddings
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Romantic luxury wedding evenings with timeless ambiance.
+
+          </p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="event-card bg-white dark:bg-card rounded-[36px] p-8 border border-black/5 dark:border-white/5 duration-300">
+
+          <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+            <i data-lucide="briefcase"></i>
+
+          </div>
+
+          <h3 class="font-heading text-4xl mt-8">
+            Corporate
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Sophisticated corporate gatherings and premium networking evenings.
+
+          </p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="event-card bg-white dark:bg-card rounded-[36px] p-8 border border-black/5 dark:border-white/5 duration-300">
+
+          <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+            <i data-lucide="gift"></i>
+
+          </div>
+
+          <h3 class="font-heading text-4xl mt-8">
+            Celebrations
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Birthday and anniversary evenings crafted with luxury hospitality.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- GALLERY -->
+  <section class="py-28 bg-white dark:bg-[#120f0f]">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- CONTENT -->
+        <div>
+
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm">
+
+            Event Atmosphere
+
+          </span>
+
+          <h2 class="font-heading text-6xl leading-tight mt-5">
+
+            Designed For
+            Memorable Evenings
+
+          </h2>
+
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mt-8">
+
+            Every private event at Vintara is carefully curated with elegant interiors,
+            premium wine collections,
+            fine dining experiences,
+            and luxury hospitality services.
+
+          </p>
+
+          <!-- FEATURES -->
+          <div class="space-y-8 mt-12">
+
+            <div class="flex gap-5">
+
+              <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="music-2"></i>
+
+              </div>
+
+              <div>
+
+                <h4 class="font-semibold text-xl">
+                  Live Entertainment
+                </h4>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-2">
+                  Elegant live music and curated evening atmosphere.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="flex gap-5">
+
+              <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="utensils-crossed"></i>
+
+              </div>
+
+              <div>
+
+                <h4 class="font-semibold text-xl">
+                  Gourmet Dining
+                </h4>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-2">
+                  Chef-crafted luxury dining and curated pairings.
+                </p>
+
+              </div>
+
+            </div>
+
+            <div class="flex gap-5">
+
+              <div class="w-16 h-16 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+
+                <i data-lucide="sparkles"></i>
+
+              </div>
+
+              <div>
+
+                <h4 class="font-semibold text-xl">
+                  Personalized Setup
+                </h4>
+
+                <p class="text-gray-600 dark:text-gray-400 mt-2">
+                  Customized luxury arrangements for every occasion.
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- IMAGES -->
+        <div class="gallery grid grid-cols-2 gap-6">
+
+          <img
+            src="https://images.unsplash.com/photo-1515169067868-5387ec356754?q=80&w=987&auto=format&fit=crop"
+            class="rounded-[32px] h-[320px] object-cover w-full"
+            alt="">
+
+          <img
+            src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1974&auto=format&fit=crop"
+            class="rounded-[32px] h-[320px] object-cover w-full mt-12"
+            alt="">
+
+          <img
+            src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop"
+            class="rounded-[32px] h-[320px] object-cover w-full"
+            alt="">
+
+          <img
+            src="https://images.unsplash.com/photo-1516594915697-87eb3b1c14ea?q=80&w=987&auto=format&fit=crop"
+            class="rounded-[32px] h-[320px] object-cover w-full mt-12"
+            alt="">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="py-28">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- TITLE -->
+      <div class="text-center max-w-2xl mx-auto">
+
+        <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm">
+
+          Event Packages
+
+        </span>
+
+        <h2 class="font-heading text-5xl mt-5">
+
+          Luxury Pricing Plans
+
+        </h2>
+
+      </div>
+
+      <!-- GRID -->
+      <div class="grid lg:grid-cols-3 gap-8 mt-16">
+
+        <!-- CARD -->
+        <div class="bg-white dark:bg-card rounded-[36px] p-10 border border-black/5 dark:border-white/5">
+
+          <span class="uppercase tracking-[0.25em] text-xs text-wine dark:text-gold">
+
+            Essential
+
+          </span>
+
+          <h3 class="font-heading text-6xl mt-6">
+            $950
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Elegant private wine evening for intimate gatherings.
+
+          </p>
+
+          <div class="space-y-5 mt-10">
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Luxury seating area</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Premium wine selection</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Curated ambiance</span>
+            </div>
+
+          </div>
+
+          <button
+            class="mt-10 w-full border border-black/10 dark:border-white/10 py-4 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+
+            Choose Package
+
+          </button>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-wine text-white rounded-[36px] p-10 shadow-2xl shadow-wine/20 relative overflow-hidden">
+
+          <div class="absolute top-6 right-6 bg-white text-black px-4 py-2 rounded-full text-xs font-semibold">
+
+            Popular
+
+          </div>
+
+          <span class="uppercase tracking-[0.25em] text-xs text-gold">
+
+            Premium
+
+          </span>
+
+          <h3 class="font-heading text-6xl mt-6">
+            $2,500
+          </h3>
+
+          <p class="text-gray-200 mt-5 leading-relaxed">
+
+            Luxury curated event experience with premium hospitality.
+
+          </p>
+
+          <div class="space-y-5 mt-10">
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>VIP private hall</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Dedicated sommelier</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Luxury dining experience</span>
+            </div>
+
+          </div>
+
+          <button
+            class="mt-10 w-full bg-white text-black py-4 rounded-2xl hover:bg-black hover:text-white">
+
+            Choose Package
+
+          </button>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white dark:bg-card rounded-[36px] p-10 border border-black/5 dark:border-white/5">
+
+          <span class="uppercase tracking-[0.25em] text-xs text-wine dark:text-gold">
+
+            Elite
+
+          </span>
+
+          <h3 class="font-heading text-6xl mt-6">
+            $6,500
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Ultra-luxury private event with complete premium customization.
+
+          </p>
+
+          <div class="space-y-5 mt-10">
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Entire venue access</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Custom luxury setup</span>
+            </div>
+
+            <div class="flex items-center gap-3">
+              <i data-lucide="check" class="w-4 h-4 text-gold"></i>
+              <span>Private chef & sommelier</span>
+            </div>
+
+          </div>
+
+          <button
+            class="mt-10 w-full border border-black/10 dark:border-white/10 py-4 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+
+            Choose Package
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="py-28 bg-white dark:bg-[#120f0f]">
+
+    <div class="max-w-5xl mx-auto px-6 lg:px-10 text-center">
+
+      <div class="flex justify-center gap-1 text-gold">
+
+        <i data-lucide="star" class="fill-gold"></i>
+        <i data-lucide="star" class="fill-gold"></i>
+        <i data-lucide="star" class="fill-gold"></i>
+        <i data-lucide="star" class="fill-gold"></i>
+        <i data-lucide="star" class="fill-gold"></i>
+
+      </div>
+
+      <h2 class="font-heading text-6xl leading-tight mt-10">
+
+        “The atmosphere, service,
+        and wine experience were simply unforgettable.”
+
+      </h2>
+
+      <p class="text-gray-600 dark:text-gray-400 text-lg mt-10">
+
+        Every guest felt immersed in elegance and sophistication.
+        The perfect luxury event venue.
+
+      </p>
+
+      <!-- USER -->
+      <div class="flex flex-col items-center mt-12">
+
+        <img
+          src="https://randomuser.me/api/portraits/men/32.jpg"
+          class="w-20 h-20 rounded-full object-cover"
+          alt="">
+
+        <h4 class="font-semibold text-xl mt-5">
+          Daniel Morris
+        </h4>
+
+        <p class="text-gray-500 mt-2">
+          Event Curator
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- CTA -->
+  <section class="py-28">
+
+    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+
+      <div class="relative rounded-[42px] overflow-hidden p-16 lg:p-24">
+
+        <!-- BG -->
+        <img
+          src="https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1974&auto=format&fit=crop"
+          class="absolute inset-0 w-full h-full object-cover"
+          alt="">
+
+        <div class="absolute inset-0 bg-black/80"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10 text-center max-w-3xl mx-auto">
+
+          <span class="uppercase tracking-[0.3em] text-gold text-sm">
+
+            Reserve Your Event
+
+          </span>
+
+          <h2 class="font-heading text-6xl md:text-7xl text-white leading-tight mt-6">
+
+            Celebrate With
+            Timeless Elegance
+
+          </h2>
+
+          <p class="text-gray-300 text-lg leading-relaxed mt-8">
+
+            Luxury private wine evenings crafted for unforgettable memories.
+
+          </p>
+
+          <button
+            class="mt-10 bg-wine hover:bg-[#54181c] text-white px-8 py-4 rounded-full shadow-2xl shadow-wine/20">
+
+            Book Private Event
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-[#0d0a0a] border-t footer-divider pt-20 pb-10">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <!-- TOP GRID -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+
+        <!-- COL 1 — BRAND -->
+        <div class="lg:col-span-1">
+
+          <a href="../index.html" class="flex items-center gap-3 font-heading text-3xl tracking-wide">
+            <img src="../assets/images/brand-logo.png" alt="Vintara" style="width:42px;height:auto;">
+            <span>Vintara</span>
+          </a>
+
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mt-5">
+            Curated collections, candlelit evenings,
+            and rare vintages — crafted for
+            the most discerning palate.
+          </p>
+
+        </div>
+
+        <!-- COL 2 — QUICK LINKS -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Quick Links
+          </h4>
+
+          <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-400">
+            <li><a href="../index.html"     class="hover:text-wine dark:hover:text-gold transition-colors">Home</a></li>
+            <li><a href="./about.html"      class="hover:text-wine dark:hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="./service.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Services</a></li>
+            <li><a href="./blog.html"       class="hover:text-wine dark:hover:text-gold transition-colors">Blog</a></li>
+            <li><a href="./booking.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Reservations</a></li>
+            <li><a href="./contact.html"    class="hover:text-wine dark:hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+
+        </div>
+
+        <!-- COL 3 — CONTACT -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Contact
+          </h4>
+
+          <ul class="space-y-5 text-sm text-gray-600 dark:text-gray-400">
+
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="text-wine dark:text-gold mt-0.5 shrink-0" style="width:16px;height:16px;"></i>
+              <span>14 Rue du Vin, Bordeaux<br>FR-33000, France</span>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="tel:+33556001234" class="hover:text-wine dark:hover:text-gold transition-colors">+33 556 001 234</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="mailto:hello@vintara.com" class="hover:text-wine dark:hover:text-gold transition-colors">hello@vintara.com</a>
+            </li>
+
+            <li class="flex items-center gap-3">
+              <i data-lucide="clock" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <span>Mon–Sat &nbsp;5 PM – 1 AM</span>
+            </li>
+
+          </ul>
+
+        </div>
+
+        <!-- COL 4 — NEWSLETTER -->
+        <div>
+
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">
+            Stay In The Know
+          </h4>
+
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+            Subscribe for exclusive events,
+            new arrivals &amp; sommelier picks.
+          </p>
+
+          <form onsubmit="return false;" class="space-y-3">
+
+            <input
+              type="email"
+              placeholder="Your email address"
+              class="footer-newsletter-input"
+            >
+
+            <button
+              type="submit"
+              class="w-full bg-wine hover:bg-[#54181c] text-white text-sm font-medium py-3 rounded-full transition-colors">
+              Subscribe
+            </button>
+
+          </form>
+
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 flex items-center gap-1.5">
+            <i data-lucide="shield-check" style="width:13px;height:13px;" class="text-wine dark:text-gold"></i>
+            No spam, ever. Unsubscribe anytime.
+          </p>
+
+        </div>
+
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="border-t footer-divider mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 dark:text-gray-500">
+
+        <p>&copy; 2025 Vintara Wine Bar &amp; Shop. All rights reserved.</p>
+
+        <div class="flex gap-6">
+          <a href="./privacy.html" class="hover:text-wine dark:hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="./terms.html"   class="hover:text-wine dark:hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+
+    lucide.createIcons();
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // DARK MODE
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    if (
+      localStorage.theme === 'dark' ||
+      (
+        !('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+    ) {
+      html.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+
+      html.classList.toggle('dark');
+
+      if(html.classList.contains('dark')){
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
+

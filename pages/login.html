@@ -1,0 +1,535 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vintara | Login</title>
+  <link rel="icon" href="../assets/images/brand-logo.png">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LUCIDE -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+
+      theme: {
+        extend: {
+
+          colors: {
+            wine: '#6B1F24',
+            gold: '#D4B483',
+            darkbg: '#0C0908',
+            card: '#171212',
+            cream: '#F7F3EE',
+          },
+
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+    *{
+      transition:
+      background-color .3s ease,
+      color .3s ease,
+      border-color .3s ease;
+    }
+
+    body{
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass{
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-gradient{
+      background:
+      linear-gradient(
+      to bottom,
+      rgba(0,0,0,.75),
+      rgba(0,0,0,.55)
+      );
+    }
+
+    .blur-circle{
+      filter: blur(120px);
+    }
+
+    /* ── NAVBAR ACTIVE STATE ── */
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #6B1F24;
+      transition: width .3s ease;
+    }
+    .dark .nav-link::after {
+      background: #C8A97E;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+    }
+    .dark .nav-link.active {
+      color: #C8A97E;
+    }
+    /* ── MOBILE NAV ACTIVE ── */
+    .mobile-nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+      border-left: 3px solid #6B1F24;
+      padding-left: 10px;
+    }
+    .dark .mobile-nav-link.active {
+      color: #C8A97E;
+      border-left-color: #C8A97E;
+    }
+    /* ── FOOTER ── */
+    .footer-divider { border-color: rgba(0,0,0,0.07); }
+    .dark .footer-divider { border-color: rgba(255,255,255,0.08); }
+    .footer-social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.12);
+      transition: background .25s, color .25s, border-color .25s, transform .25s;
+    }
+    .dark .footer-social-btn { border-color: rgba(255,255,255,0.12); }
+    .footer-social-btn:hover {
+      background: #6B1F24; border-color: #6B1F24; color: #fff; transform: translateY(-2px);
+    }
+    .footer-newsletter-input {
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 999px; padding: 12px 20px; outline: none;
+      font-size: 0.875rem; width: 100%; color: inherit; transition: border-color .25s;
+    }
+    .dark .footer-newsletter-input { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .footer-newsletter-input:focus { border-color: #6B1F24; }
+    .dark .footer-newsletter-input:focus { border-color: #C8A97E; }
+    .footer-newsletter-input::placeholder { color: #9ca3af; }  </style>
+
+</head>
+
+<body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="fixed inset-0">
+
+    <img
+      src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop"
+      class="w-full h-full object-cover"
+      alt="">
+
+    <div class="absolute inset-0 hero-gradient"></div>
+
+  </div>
+
+  <!-- BLURS -->
+  <div class="absolute top-0 left-0 w-[300px] h-[300px] rounded-full bg-wine/40 blur-circle"></div>
+
+  <div class="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full bg-gold/20 blur-circle"></div>
+
+  <!-- TOP BAR -->
+  <header class="relative z-50">
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+      <div class="h-24 flex items-center justify-between">
+
+        <!-- LOGO -->
+         <a href="./index.html"
+            class="font-heading text-4xl tracking-wide text-white">
+            <img src="../assets/images/brand-logo.png"alt="brand-logo" style="width: 50px; height: auto; display: inline-block ;">
+           <span> Vintara</span> </a>
+
+        <!-- RIGHT -->
+        <div class="flex items-center gap-4">
+
+          <!-- THEME -->
+          <button id="themeToggle"
+            class="w-11 h-11 rounded-full border border-white/15 bg-white/10 text-white flex items-center justify-center backdrop-blur-md">
+
+            <i data-lucide="moon"></i>
+
+          </button>
+
+          <!-- HOME -->
+          <a href="../index.html"
+            class="hidden md:flex items-center gap-2 border border-white/15 bg-white/10 text-white px-6 py-3 rounded-full backdrop-blur-md hover:bg-white hover:text-black duration-300">
+
+            <i data-lucide="arrow-left" class="w-4 h-4"></i>
+
+            Back Home
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- LOGIN -->
+  <section class="relative z-10 min-h-screen flex items-center justify-center px-6 py-20">
+
+    <div class="w-full max-w-6xl grid lg:grid-cols-2 overflow-hidden rounded-[42px] border border-white/10 bg-white/10 backdrop-blur-2xl shadow-[0_20px_80px_rgba(0,0,0,.5)]">
+
+      <!-- LEFT -->
+      <div class="hidden lg:flex relative p-16 flex-col justify-between overflow-hidden">
+
+        <!-- OVERLAY -->
+        <div class="absolute inset-0 bg-gradient-to-br from-wine/40 to-black/20"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10">
+
+          <span class="uppercase tracking-[0.35em] text-gold text-sm">
+
+            Luxury Wine Experience
+
+          </span>
+
+          <h1 class="font-heading text-7xl text-white leading-[0.95] mt-8">
+
+            Welcome
+            Back.
+
+          </h1>
+
+          <p class="text-gray-300 text-lg leading-relaxed mt-8 max-w-md">
+
+            Access your reservations,
+            exclusive collections,
+            and premium wine experiences.
+
+          </p>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="relative z-10 flex items-center gap-5">
+
+          <!-- USERS -->
+          <div class="flex -space-x-4">
+
+            <img
+              src="https://randomuser.me/api/portraits/women/44.jpg"
+              class="w-12 h-12 rounded-full border-2 border-black object-cover"
+              alt="">
+
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              class="w-12 h-12 rounded-full border-2 border-black object-cover"
+              alt="">
+
+            <img
+              src="https://randomuser.me/api/portraits/women/68.jpg"
+              class="w-12 h-12 rounded-full border-2 border-black object-cover"
+              alt="">
+
+          </div>
+
+          <!-- TEXT -->
+          <div>
+
+            <div class="flex items-center gap-1 text-gold">
+
+              <i data-lucide="star" class="w-4 h-4 fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-gold"></i>
+
+            </div>
+
+            <p class="text-gray-300 text-sm mt-1">
+
+              Trusted by 12,000+ collectors
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div class="bg-white dark:bg-card p-8 md:p-14 flex flex-col justify-center">
+
+        <!-- MOBILE TITLE -->
+        <div class="lg:hidden text-center mb-10">
+
+          <h2 class="font-heading text-5xl">
+            Welcome Back
+          </h2>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-4">
+            Login to continue your luxury wine experience.
+          </p>
+
+        </div>
+
+        <!-- TITLE -->
+        <div class="hidden lg:block">
+
+          <span class="uppercase tracking-[0.25em] text-wine dark:text-gold text-xs">
+
+            Member Login
+
+          </span>
+
+          <h2 class="font-heading text-6xl mt-5">
+
+            Sign In
+
+          </h2>
+
+          <p class="text-gray-600 dark:text-gray-400 mt-5 leading-relaxed">
+
+            Enter your account details to continue.
+
+          </p>
+
+        </div>
+
+        <!-- FORM -->
+        <form class="space-y-6 mt-10">
+
+          <!-- EMAIL -->
+          <div>
+
+            <label class="text-sm text-gray-600 dark:text-gray-400">
+              Email Address
+            </label>
+
+            <div class="relative mt-3">
+
+              <i data-lucide="mail"
+                class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"></i>
+
+              <input
+                type="email"
+                placeholder="Enter your email"
+                class="w-full bg-cream dark:bg-darkbg border border-black/10 dark:border-white/10 rounded-2xl pl-14 pr-5 py-4 outline-none focus:border-wine dark:focus:border-gold">
+
+            </div>
+
+          </div>
+
+          <!-- PASSWORD -->
+          <div>
+
+            <div class="flex items-center justify-between">
+
+              <label class="text-sm text-gray-600 dark:text-gray-400">
+                Password
+              </label>
+
+              <a href="#"
+                class="text-sm text-wine dark:text-gold hover:underline">
+
+                Forgot Password?
+
+              </a>
+
+            </div>
+
+            <div class="relative mt-3">
+
+              <i data-lucide="lock"
+                class="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500"></i>
+
+              <input
+                id="password"
+                type="password"
+                placeholder="Enter your password"
+                class="w-full bg-cream dark:bg-darkbg border border-black/10 dark:border-white/10 rounded-2xl pl-14 pr-14 py-4 outline-none focus:border-wine dark:focus:border-gold">
+
+              <!-- TOGGLE -->
+              <button
+                type="button"
+                id="togglePassword"
+                class="absolute right-5 top-1/2 -translate-y-1/2 text-gray-500">
+
+                <i data-lucide="eye"></i>
+
+              </button>
+
+            </div>
+
+          </div>
+
+          <!-- OPTIONS -->
+          <div class="flex items-center justify-between">
+
+            <label class="flex items-center gap-3 text-sm text-gray-600 dark:text-gray-400 cursor-pointer">
+
+              <input
+                type="checkbox"
+                class="accent-wine">
+
+              Remember me
+
+            </label>
+
+          </div>
+
+          <!-- BUTTON -->
+          <button
+            type="submit"
+            class="w-full bg-wine hover:bg-[#54181c] text-white py-4 rounded-2xl shadow-2xl shadow-wine/20">
+
+            Sign In
+
+          </button>
+
+        </form>
+
+        <!-- DIVIDER -->
+        <div class="flex items-center gap-4 my-8">
+
+          <div class="flex-1 h-px bg-black/10 dark:bg-white/10"></div>
+
+          <span class="text-sm text-gray-500">
+            OR
+          </span>
+
+          <div class="flex-1 h-px bg-black/10 dark:bg-white/10"></div>
+
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="grid sm:grid-cols-2 gap-4">
+
+          <!-- GOOGLE -->
+          <button
+            class="flex items-center justify-center gap-3 border border-black/10 dark:border-white/10 py-4 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black duration-300">
+
+            <i data-lucide="chrome"></i>
+
+            Continue with Google
+
+          </button>
+
+          <!-- APPLE -->
+          <button
+            class="flex items-center justify-center gap-3 border border-black/10 dark:border-white/10 py-4 rounded-2xl hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black duration-300">
+
+            <i data-lucide="apple"></i>
+
+            Continue with Apple
+
+          </button>
+
+        </div>
+
+        <!-- REGISTER -->
+        <p class="text-center text-gray-600 dark:text-gray-400 mt-10">
+
+          Don’t have an account?
+
+          <a href="./signup.html"
+            class="text-wine dark:text-gold hover:underline">
+
+            Create Account
+
+          </a>
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SCRIPT -->
+  <script>
+
+    lucide.createIcons();
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // DARK MODE
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    if (
+      localStorage.theme === 'dark' ||
+      (
+        !('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+    ) {
+      html.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+
+      html.classList.toggle('dark');
+
+      if(html.classList.contains('dark')){
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+
+    });
+
+    // PASSWORD TOGGLE
+    const password = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+    togglePassword.addEventListener('click', () => {
+
+      if(password.type === 'password'){
+        password.type = 'text';
+      } else {
+        password.type = 'password';
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>

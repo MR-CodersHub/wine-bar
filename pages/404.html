@@ -1,0 +1,345 @@
+﻿<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>404 | Page Not Found</title>
+  <link rel="icon" href="../assets/images/brand-logo.png">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LUCIDE -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+
+      theme: {
+        extend: {
+
+          colors: {
+            wine: '#6B1F24',
+            gold: '#D4B483',
+            darkbg: '#0C0908',
+            card: '#171212',
+            cream: '#F7F3EE',
+          },
+
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+
+        }
+      }
+    }
+  </script>
+
+  <style>
+
+    *{
+      transition:
+      background-color .3s ease,
+      color .3s ease,
+      border-color .3s ease,
+      transform .3s ease;
+    }
+
+    body{
+      font-family: 'Inter', sans-serif;
+    }
+
+    .glass{
+      backdrop-filter: blur(18px);
+    }
+
+    .hero-overlay{
+      background:
+      radial-gradient(circle at top,
+      rgba(107,31,36,.25),
+      transparent 45%),
+      linear-gradient(
+      to bottom,
+      rgba(0,0,0,.78),
+      rgba(0,0,0,.92)
+      );
+    }
+
+    .float{
+      animation: float 5s ease-in-out infinite;
+    }
+
+    @keyframes float{
+
+      0%,100%{
+        transform: translateY(0px);
+      }
+
+      50%{
+        transform: translateY(-12px);
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-hidden">
+
+  <!-- BACKGROUND -->
+  <div class="fixed inset-0">
+
+    <img
+      src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop"
+      class="w-full h-full object-cover"
+      alt="">
+
+    <div class="absolute inset-0 hero-overlay"></div>
+
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="relative z-50">
+
+    <nav class="glass bg-white/5 border-b border-white/10">
+
+      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+
+        <div class="h-20 flex items-center justify-between">
+
+          <!-- LOGO -->
+          <a href="#"
+            class="font-heading text-4xl text-white tracking-wide">
+
+            Vintara
+
+          </a>
+
+          <!-- RIGHT -->
+          <div class="flex items-center gap-4">
+
+            <!-- HOME -->
+            <a href="#"
+              class="hidden sm:flex items-center gap-2 text-white/80 hover:text-white text-sm">
+
+              <i data-lucide="arrow-left" class="w-4 h-4"></i>
+
+              Back Home
+
+            </a>
+
+            <!-- THEME -->
+            <button id="themeToggle"
+              class="w-11 h-11 rounded-full border border-white/10 text-white flex items-center justify-center hover:bg-white/10">
+
+              <i data-lucide="moon"></i>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- MAIN -->
+  <main class="relative z-10 min-h-screen flex items-center justify-center px-6">
+
+    <div class="max-w-5xl mx-auto text-center">
+
+      <!-- ICON -->
+      <div class="w-28 h-28 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mx-auto float">
+
+        <i data-lucide="wine-off" class="w-12 h-12 text-gold"></i>
+
+      </div>
+
+      <!-- 404 -->
+      <h1 class="font-heading text-[9rem] md:text-[13rem] leading-none text-white mt-10">
+
+        404
+
+      </h1>
+
+      <!-- TITLE -->
+      <h2 class="font-heading text-5xl md:text-7xl text-white leading-tight mt-4">
+
+        This Vintage
+        Has Gone Missing
+
+      </h2>
+
+      <!-- DESC -->
+      <p class="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto mt-8">
+
+        The page you’re searching for has either been moved,
+        deleted,
+        or quietly disappeared into the wine cellar of the internet.
+        Humans remain remarkably talented at breaking links.
+
+      </p>
+
+      <!-- BUTTONS -->
+      <div class="flex flex-col sm:flex-row justify-center gap-5 mt-12">
+
+        <!-- HOME -->
+        <a href="#"
+          class="bg-wine hover:bg-[#54181c] text-white px-8 py-4 rounded-full inline-flex items-center justify-center gap-3 text-sm font-medium">
+
+          <i data-lucide="home" class="w-4 h-4"></i>
+
+          Return Home
+
+        </a>
+
+        <!-- COLLECTION -->
+        <a href="#"
+          class="border border-white/10 bg-white/5 hover:bg-white/10 text-white px-8 py-4 rounded-full inline-flex items-center justify-center gap-3 text-sm font-medium">
+
+          <i data-lucide="wine" class="w-4 h-4"></i>
+
+          Explore Collection
+
+        </a>
+
+      </div>
+
+      <!-- MINI CARDS -->
+      <div class="grid md:grid-cols-3 gap-6 mt-20">
+
+        <!-- CARD -->
+        <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 backdrop-blur-xl">
+
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto">
+
+            <i data-lucide="book-open" class="text-gold"></i>
+
+          </div>
+
+          <h3 class="font-heading text-3xl text-white mt-6">
+
+            Wine Journal
+
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed mt-4 text-sm">
+
+            Discover luxury stories,
+            tasting guides,
+            and sommelier insights.
+
+          </p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 backdrop-blur-xl">
+
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto">
+
+            <i data-lucide="glass-water" class="text-gold"></i>
+
+          </div>
+
+          <h3 class="font-heading text-3xl text-white mt-6">
+
+            Wine Tastings
+
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed mt-4 text-sm">
+
+            Experience curated tasting events
+            and premium wine evenings.
+
+          </p>
+
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white/5 border border-white/10 rounded-[28px] p-8 backdrop-blur-xl">
+
+          <div class="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mx-auto">
+
+            <i data-lucide="gem" class="text-gold"></i>
+
+          </div>
+
+          <h3 class="font-heading text-3xl text-white mt-6">
+
+            Rare Collection
+
+          </h3>
+
+          <p class="text-gray-400 leading-relaxed mt-4 text-sm">
+
+            Explore collector-worthy bottles
+            and exclusive vintages.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- SCRIPT -->
+  <script>
+
+    lucide.createIcons();
+    // MOBILE MENU
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // DARK MODE
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+
+    if (
+      localStorage.theme === 'dark' ||
+      (
+        !('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+    ) {
+      html.classList.add('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+
+      html.classList.toggle('dark');
+
+      if(html.classList.contains('dark')){
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
+      }
+
+    });
+
+  </script>
+
+</body>
+</html>
