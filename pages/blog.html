@@ -304,21 +304,21 @@
       <div class="flex flex-wrap items-center gap-4 justify-between">
 
         <!-- CATEGORIES -->
-        <div class="flex flex-wrap gap-4">
+        <div id="categoryFilters" class="flex flex-wrap gap-4">
 
-          <button class="bg-wine text-white px-6 py-3 rounded-full text-sm">
+          <button data-category="all" class="bg-wine text-white px-6 py-3 rounded-full text-sm">
             All Articles
           </button>
 
-          <button class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+          <button data-category="wine guide" class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
             Wine Guides
           </button>
 
-          <button class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+          <button data-category="luxury lifestyle" class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
             Luxury Lifestyle
           </button>
 
-          <button class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+          <button data-category="sommelier notes" class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full text-sm hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
             Sommelier Notes
           </button>
 
@@ -452,7 +452,7 @@
       </div>
 
       <!-- GRID -->
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+      <div id="blogGrid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
 
         <!-- CARD -->
         <article class="blog-card bg-white dark:bg-card rounded-[36px] overflow-hidden border border-black/5 dark:border-white/5">
@@ -471,7 +471,7 @@
           <div class="p-8">
 
             <!-- TAG -->
-            <span class="uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
+            <span class="article-tag uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
 
               Wine Guide
 
@@ -528,7 +528,7 @@
           <div class="p-8">
 
             <!-- TAG -->
-            <span class="uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
+            <span class="article-tag uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
 
               Luxury Lifestyle
 
@@ -585,7 +585,7 @@
           <div class="p-8">
 
             <!-- TAG -->
-            <span class="uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
+            <span class="article-tag uppercase tracking-[0.2em] text-xs text-wine dark:text-gold">
 
               Sommelier Notes
 
@@ -863,6 +863,47 @@
 
     });
 
+    // CATEGORIES FILTER
+    (function(){
+      const filters = document.querySelectorAll('#categoryFilters button[data-category]');
+      const grid = document.getElementById('blogGrid');
+      if(!filters.length || !grid) return;
+
+      const articles = Array.from(grid.querySelectorAll('article.blog-card'));
+
+      const normalize = (s) => s.toLowerCase().replace(/[^a-z0-9 ]/g,'').trim().replace(/\s+/g,' ');
+      const singular = (s) => s.replace(/s$/,'');
+
+      const setActiveButton = (activeBtn) => {
+        filters.forEach(btn => {
+          btn.classList.remove('bg-wine','text-white');
+          btn.classList.add('border','border-black/10','dark:border-white/10');
+        });
+        activeBtn.classList.add('bg-wine','text-white');
+        activeBtn.classList.remove('border','border-black/10','dark:border-white/10');
+      };
+
+      filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const catRaw = btn.dataset.category || 'all';
+          const cat = singular(normalize(catRaw));
+
+          setActiveButton(btn);
+
+          articles.forEach(article => {
+            const tagEl = article.querySelector('.article-tag');
+            const tag = tagEl ? singular(normalize(tagEl.textContent)) : '';
+
+            if(cat === 'all' || tag === cat){
+              article.style.display = '';
+            } else {
+              article.style.display = 'none';
+            }
+          });
+        });
+      });
+
+    })();
   </script>
 
 </body>
