@@ -155,70 +155,68 @@
 
 <body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
 
-  <!-- NAVBAR -->
+    <!-- NAVBAR -->
   <header class="fixed top-0 w-full z-50">
 
     <nav class="glass bg-white/70 dark:bg-black/20 border-b border-black/5 dark:border-white/10">
 
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
 
         <div class="h-20 flex items-center justify-between">
 
           <!-- LOGO -->
           <a href="../index.html"
-            class="font-heading text-4xl tracking-wide flex items-center gap-2">
-            <img src="../assets/images/brand-logo.png" alt="brand-logo" style="width:44px;height:auto;">
+            class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-wide flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <img src="../assets/images/brand-logo.png" alt="brand-logo" class="w-8 sm:w-10 md:w-[44px] h-auto shrink-0">
             <span>Vintara</span>
           </a>
 
           <!-- MENU -->
-          <div class="hidden lg:flex items-center gap-10 text-sm">
+          <div class="hidden lg:flex items-center gap-6 xl:gap-10 text-sm">
 
-            <a href="../index.html" class="nav-link">
+            <a href="../index.html" class="nav-link ">
               Home
             </a>
 
-            <a href="./home.html" class="nav-link">
+            <a href="./home.html" class="nav-link ">
               Home 2
             </a>
 
-            <a href="./about.html" class="nav-link">
+            <a href="./about.html" class="nav-link ">
               About
             </a>
 
-            <a href="./service.html" class="nav-link">
+            <a href="./service.html" class="nav-link ">
               Service
+            </a>
+
+            <a href="./wine-menu.html" class="nav-link ">
+              Wine Menu
             </a>
 
             <a href="./blog.html" class="nav-link active">
               Blog
             </a>
 
-            <a href="./contact.html" class="nav-link">
+            <a href="./contact.html" class="nav-link ">
               Contact
             </a>
 
           </div>
 
           <!-- RIGHT -->
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
 
             <!-- TOGGLE -->
             <button id="themeToggle"
-              class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105">
-              <i data-lucide="moon"></i>
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105 shrink-0">
+              <i data-lucide="moon" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-
-            <!-- LOGIN BUTTON -->
-            <a href="./login.html"
-              class="hidden md:block bg-wine hover:bg-[#54181c] text-white px-7 py-3 rounded-full text-sm font-medium">
-              Login
-            </a>
 
             <!-- MOBILE MENU BTN -->
             <button id="menuBtn"
-              class="lg:hidden w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
-              <i data-lucide="menu"></i>
+              class="lg:hidden w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center shrink-0">
+              <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
 
           </div>
@@ -235,12 +233,13 @@
 
       <div class="px-6 py-6 flex flex-col gap-5 text-sm">
 
-        <a href="../index.html" class="mobile-nav-link">Home</a>
-        <a href="./home.html" class="mobile-nav-link">Home 2</a>
-        <a href="./about.html" class="mobile-nav-link">About</a>
-        <a href="./service.html" class="mobile-nav-link">Service</a>
+        <a href="../index.html" class="mobile-nav-link ">Home</a>
+        <a href="./home.html" class="mobile-nav-link ">Home 2</a>
+        <a href="./about.html" class="mobile-nav-link ">About</a>
+        <a href="./service.html" class="mobile-nav-link ">Service</a>
+        <a href="./wine-menu.html" class="mobile-nav-link ">Wine Menu</a>
         <a href="./blog.html" class="mobile-nav-link active">Blog</a>
-        <a href="./contact.html" class="mobile-nav-link">Contact</a>
+        <a href="./contact.html" class="mobile-nav-link ">Contact</a>
 
       </div>
 
@@ -249,7 +248,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative h-[95vh] overflow-hidden flex items-end">
+  <section class="relative h-[95vh] overflow-hidden flex items-end mt-10">
 
     <!-- BG -->
     <div class="absolute inset-0">
@@ -264,7 +263,7 @@
     </div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 max-w-6xl mx-auto px-6 lg:px-10 pb-20 w-full">
+    <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-10 pt-32 pb-20 w-full">
 
       <!-- CATEGORY -->
       <div class="flex items-center gap-4">
@@ -280,7 +279,7 @@
       </div>
 
       <!-- TITLE -->
-      <h1 class="font-heading text-7xl md:text-8xl text-white leading-[0.92] max-w-5xl mt-8">
+      <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white leading-[1.1] sm:leading-[0.95] md:leading-[0.92] max-w-5xl mt-8">
 
         Understanding
         Vintage Quality
@@ -351,7 +350,7 @@
   <!-- ARTICLE -->
   <section class="py-28">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <div class="grid lg:grid-cols-[1fr_350px] gap-20">
 
@@ -603,7 +602,7 @@
   <!-- NEWSLETTER -->
   <section class="pb-28">
 
-    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <div class="relative rounded-[42px] overflow-hidden p-16 lg:p-24">
 
@@ -624,7 +623,7 @@
 
           </span>
 
-          <h2 class="font-heading text-6xl md:text-7xl text-white leading-tight mt-6">
+          <h2 class="font-heading text-5xl md:text-7xl text-white leading-tight mt-6">
 
             Receive Curated
             Wine Stories
@@ -667,7 +666,7 @@
   <!-- FOOTER -->
   <footer class="bg-white dark:bg-[#0d0a0a] border-t footer-divider pt-20 pb-10">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <!-- TOP GRID -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
@@ -795,20 +794,13 @@
   <!-- SCRIPT -->
   <script>
 
-    lucide.createIcons();
-    // MOBILE MENU
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // DARK MODE
+    // INITIALIZE ICONS & MOBILE MENU & THEME TOGGLE
     const html = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
+    // Check and set initial theme
     if (
       localStorage.theme === 'dark' ||
       (
@@ -817,18 +809,74 @@
       )
     ) {
       html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
     }
 
-    themeToggle.addEventListener('click', () => {
-
-      html.classList.toggle('dark');
-
-      if(html.classList.contains('dark')){
-        localStorage.theme = 'dark';
-      } else {
-        localStorage.theme = 'light';
+    // Function to set toggle button icon
+    function updateThemeIcon() {
+      const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+      if (themeIcon) {
+        if (html.classList.contains('dark')) {
+          themeIcon.setAttribute('data-lucide', 'sun');
+        } else {
+          themeIcon.setAttribute('data-lucide', 'moon');
+        }
+        lucide.createIcons();
       }
+    }
 
+    // Initialize theme icon
+    if (themeToggle) {
+      updateThemeIcon();
+      
+      themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        if (html.classList.contains('dark')) {
+          localStorage.theme = 'dark';
+        } else {
+          localStorage.theme = 'light';
+        }
+        updateThemeIcon();
+      });
+    } else {
+      lucide.createIcons();
+    }
+
+    // Mobile Menu handler with icon toggling (menu <-> x)
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'x');
+            lucide.createIcons();
+          }
+        } else {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      });
+    }
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      }
     });
 
   </script>

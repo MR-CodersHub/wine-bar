@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Vintara | Wine Menu & Tasting Experiences</title>
+  <link rel="icon" href="../assets/images/brand-logo.png">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- TAILWIND -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- LUCIDE -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            wine: '#6B1F24',
+            gold: '#D4B483',
+            darkbg: '#0C0908',
+            card: '#171212',
+            cream: '#F7F3EE',
+          },
+          fontFamily: {
+            heading: ['Cormorant Garamond', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    *{
+      transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+    }
+    body{
+      font-family: 'Inter', sans-serif;
+    }
+    .glass{
+      backdrop-filter: blur(18px);
+    }
+    .hero-gradient{
+      background: linear-gradient(to right, rgba(0,0,0,.92), rgba(0,0,0,.65), rgba(0,0,0,.15));
+    }
+    .product img{
+      transition: .7s ease;
+    }
+    .product:hover img{
+      transform: scale(1.08);
+    }
+    .blur-circle{
+      filter: blur(120px);
+    }
+    /* ── NAVBAR ACTIVE STATE ── */
+    .nav-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: #6B1F24;
+      transition: width .3s ease;
+    }
+    .dark .nav-link::after {
+      background: #C8A97E;
+    }
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+    }
+    .nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+    }
+    .dark .nav-link.active {
+      color: #C8A97E;
+    }
+    /* ── MOBILE NAV ACTIVE ── */
+    .mobile-nav-link.active {
+      color: #6B1F24;
+      font-weight: 600;
+      border-left: 3px solid #6B1F24;
+      padding-left: 10px;
+    }
+    .dark .mobile-nav-link.active {
+      color: #C8A97E;
+      border-left-color: #C8A97E;
+    }
+    /* ── FOOTER ── */
+    .footer-divider { border-color: rgba(0,0,0,0.07); }
+    .dark .footer-divider { border-color: rgba(255,255,255,0.08); }
+    .footer-social-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px solid rgba(0,0,0,0.12);
+      transition: background .25s, color .25s, border-color .25s, transform .25s;
+    }
+    .dark .footer-social-btn { border-color: rgba(255,255,255,0.12); }
+    .footer-social-btn:hover {
+      background: #6B1F24; border-color: #6B1F24; color: #fff; transform: translateY(-2px);
+    }
+    .footer-newsletter-input {
+      background: rgba(0,0,0,0.04); border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 999px; padding: 12px 20px; outline: none;
+      font-size: 0.875rem; width: 100%; color: inherit; transition: border-color .25s;
+    }
+    .dark .footer-newsletter-input { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.1); }
+    .footer-newsletter-input:focus { border-color: #6B1F24; }
+    .dark .footer-newsletter-input:focus { border-color: #C8A97E; }
+    .footer-newsletter-input::placeholder { color: #9ca3af; }
+  </style>
+</head>
+
+<body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
+
+    <!-- NAVBAR -->
+  <header class="fixed top-0 w-full z-50">
+
+    <nav class="glass bg-white/70 dark:bg-black/20 border-b border-black/5 dark:border-white/10">
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
+
+        <div class="h-20 flex items-center justify-between">
+
+          <!-- LOGO -->
+          <a href="../index.html"
+            class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-wide flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <img src="../assets/images/brand-logo.png" alt="brand-logo" class="w-8 sm:w-10 md:w-[44px] h-auto shrink-0">
+            <span>Vintara</span>
+          </a>
+
+          <!-- MENU -->
+          <div class="hidden lg:flex items-center gap-6 xl:gap-10 text-sm">
+
+            <a href="../index.html" class="nav-link ">
+              Home
+            </a>
+
+            <a href="./home.html" class="nav-link ">
+              Home 2
+            </a>
+
+            <a href="./about.html" class="nav-link ">
+              About
+            </a>
+
+            <a href="./service.html" class="nav-link ">
+              Service
+            </a>
+
+            <a href="./wine-menu.html" class="nav-link active">
+              Wine Menu
+            </a>
+
+            <a href="./blog.html" class="nav-link ">
+              Blog
+            </a>
+
+            <a href="./contact.html" class="nav-link ">
+              Contact
+            </a>
+
+          </div>
+
+          <!-- RIGHT -->
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
+
+            <!-- TOGGLE -->
+            <button id="themeToggle"
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105 shrink-0">
+              <i data-lucide="moon" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            </button>
+
+            <!-- MOBILE MENU BTN -->
+            <button id="menuBtn"
+              class="lg:hidden w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center shrink-0">
+              <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5"></i>
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div id="mobileMenu"
+      class="hidden lg:hidden bg-white dark:bg-[#120d0d] border-b border-black/5 dark:border-white/10">
+
+      <div class="px-6 py-6 flex flex-col gap-5 text-sm">
+
+        <a href="../index.html" class="mobile-nav-link ">Home</a>
+        <a href="./home.html" class="mobile-nav-link ">Home 2</a>
+        <a href="./about.html" class="mobile-nav-link ">About</a>
+        <a href="./service.html" class="mobile-nav-link ">Service</a>
+        <a href="./wine-menu.html" class="mobile-nav-link active">Wine Menu</a>
+        <a href="./blog.html" class="mobile-nav-link ">Blog</a>
+        <a href="./contact.html" class="mobile-nav-link ">Contact</a>
+
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- HERO -->
+  <section class="relative min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] overflow-hidden flex items-center">
+    <!-- BG -->
+    <div class="absolute inset-0">
+      <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?q=80&w=1974&auto=format&fit=crop" class="w-full h-full object-cover" alt="Wine Tasting">
+      <div class="absolute inset-0 hero-gradient"></div>
+    </div>
+    <!-- BLUR -->
+    <div class="absolute top-20 right-20 w-[350px] h-[350px] rounded-full bg-wine/30 blur-circle"></div>
+
+    <!-- CONTENT -->
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full pt-28 pb-12 sm:pt-32 sm:pb-20 md:py-32">
+      <div class="max-w-3xl">
+        <span class="uppercase tracking-[0.4em] text-gold text-sm font-semibold">Curated Experiences</span>
+        <h1 class="font-heading text-4xl sm:text-6xl md:text-8xl text-white leading-[1.1] sm:leading-[0.95] md:leading-[0.9] mt-8">
+          The Wine List &
+          <span class="italic text-gold">Tasting Experiences</span>
+        </h1>
+        <p class="text-gray-300 text-lg leading-relaxed mt-8 max-w-2xl">
+          Explore our seasonal menu of handpicked vintages, sommelier tastings, curated pairings, and unique wine gatherings.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINE LIST BY CATEGORY -->
+  <section class="py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Handpicked Vintages</span>
+        <h2 class="font-heading text-5xl mt-5">By the Glass & Bottle</h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-4">Browse our thoughtfully curated selection of organic, rare, and biodynamic wines sourced directly from boutique vineyards.</p>
+      </div>
+
+      <!-- GRID OF CATEGORIES -->
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- RED WINES -->
+        <div class="bg-white dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 md:p-10 shadow-sm">
+          <h3 class="font-heading text-4xl text-wine dark:text-gold border-b border-black/10 dark:border-white/10 pb-4 mb-6 flex items-center justify-between">
+            <span>Red Wines</span>
+            <i data-lucide="glass-water" class="w-6 h-6"></i>
+          </h3>
+          <div class="space-y-8">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Velvet Noir Cabernet (2019)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Napa Valley, USA. Bold notes of black cherry, dark chocolate, and structured oak tannin.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$18 / $89</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Château Grand Reserve Merlot (2018)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Bordeaux, France. Medium-bodied with plum, vanilla, and fine herbaceous complexities.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$22 / $110</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Old Vine Zinfandel (2020)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sonoma Coast, USA. Lush blackberry jam, black pepper, and toasted spice finish.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$16 / $75</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- WHITE WINES -->
+        <div class="bg-white dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 md:p-10 shadow-sm">
+          <h3 class="font-heading text-4xl text-wine dark:text-gold border-b border-black/10 dark:border-white/10 pb-4 mb-6 flex items-center justify-between">
+            <span>White Wines</span>
+            <i data-lucide="wine" class="w-6 h-6"></i>
+          </h3>
+          <div class="space-y-8">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Vintara Reserve Chardonnay (2021)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Marlborough, NZ. Crisp green apple, stone fruit, and bright minerality.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$15 / $68</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Sommerfeld Riesling Dry (2020)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Rheingau, Germany. Refreshing lime zest, petrol aromas, and sharp acidity.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$17 / $78</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Cloud Valley Sauvignon Blanc (2022)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Loire Valley, France. Grapefruit, passionfruit, and clean flintstone notes.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$19 / $85</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROSE & SPARKLING -->
+        <div class="bg-white dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 md:p-10 shadow-sm">
+          <h3 class="font-heading text-4xl text-wine dark:text-gold border-b border-black/10 dark:border-white/10 pb-4 mb-6 flex items-center justify-between">
+            <span>Rosé & Sparkling</span>
+            <i data-lucide="sparkles" class="w-6 h-6"></i>
+          </h3>
+          <div class="space-y-8">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Golden Rosé de Provence (2021)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Provence, France. Dry, floral bouquet balanced with refreshing wild strawberry.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$16 / $72</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Imperial Brut Champagne</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Champagne, France. Rich golden bubbles with pear, brioche, and hazelnut notes.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$28 / $135</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Bella Vista Prosecco Superiore</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Valdobbiadene, Italy. Elegant green apple fruitiness with persistent crispness.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$14 / $60</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- LIMITED EDITIONS & STAFF PICKS -->
+        <div class="bg-white dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 md:p-10 shadow-sm">
+          <h3 class="font-heading text-4xl text-wine dark:text-gold border-b border-black/10 dark:border-white/10 pb-4 mb-6 flex items-center justify-between">
+            <span>Collector's Vault</span>
+            <i data-lucide="gem" class="w-6 h-6"></i>
+          </h3>
+          <div class="space-y-8">
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Royal Cask Reserve Syrah (2015)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Barossa Valley, Australia. Incredibly deep body, peppery oak, and cocoa finish.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$35 / $165</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Sommelier Pick: Brunello di Montalcino (2016)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Tuscany, Italy. Complex earthy forest floor, leather, and ripe dark cherry notes.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$42 / $195</span>
+            </div>
+            <div class="flex justify-between items-start gap-4">
+              <div>
+                <h4 class="font-semibold text-lg">Limited Edition Blanc de Noirs (2012)</h4>
+                <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Champagne, France. Aged beautifully, offering hints of baked apple, yeast, and honey.</p>
+              </div>
+              <span class="text-wine dark:text-gold font-bold text-lg shrink-0">$48 / $220</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WINE TASTING EXPERIENCES -->
+  <section class="py-28 bg-white dark:bg-[#120f0f]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Tasting Flights</span>
+        <h2 class="font-heading text-5xl mt-5">Sommelier Guided Tastings</h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-4">Discover the stories, science, and tasting techniques behind world-class wines guided by our in-house experts.</p>
+      </div>
+
+      <div class="grid md:grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- FLIGHT 1 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 flex flex-col justify-between h-full shadow-sm hover:scale-[1.02] duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+              <i data-lucide="compass"></i>
+            </div>
+            <h3 class="font-heading text-3xl mb-3">Intro to Tasting</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">Learn the 4 steps of wine tasting: visual evaluation, olfactory aromas, structural palate, and overall complexity.</p>
+          </div>
+          <div>
+            <div class="flex justify-between items-center text-sm font-bold text-wine dark:text-gold border-t border-black/10 dark:border-white/10 pt-4 mt-6">
+              <span>3 Wines · 45 Mins</span>
+              <span>$45 / person</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLIGHT 2 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 flex flex-col justify-between h-full shadow-sm hover:scale-[1.02] duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+              <i data-lucide="globe"></i>
+            </div>
+            <h3 class="font-heading text-3xl mb-3">Terroir Explorer</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">Understand how climate, soil, and regional winemaking traditions define flavors. Features French and Italian classics.</p>
+          </div>
+          <div>
+            <div class="flex justify-between items-center text-sm font-bold text-wine dark:text-gold border-t border-black/10 dark:border-white/10 pt-4 mt-6">
+              <span>5 Wines · 60 Mins</span>
+              <span>$65 / person</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLIGHT 3 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 flex flex-col justify-between h-full shadow-sm hover:scale-[1.02] duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+              <i data-lucide="crown"></i>
+            </div>
+            <h3 class="font-heading text-3xl mb-3">Collector's Flight</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">For the serious connoisseur. Taste highly rated reserve vintages and rare bottles from our private cellar vault.</p>
+          </div>
+          <div>
+            <div class="flex justify-between items-center text-sm font-bold text-wine dark:text-gold border-t border-black/10 dark:border-white/10 pt-4 mt-6">
+              <span>4 Wines · 75 Mins</span>
+              <span>$120 / person</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- FLIGHT 4 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 flex flex-col justify-between h-full shadow-sm hover:scale-[1.02] duration-300">
+          <div>
+            <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+              <i data-lucide="party-popper"></i>
+            </div>
+            <h3 class="font-heading text-3xl mb-3">Private Group Tasting</h3>
+            <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6">A customizable masterclass ideal for corporate gatherings, celebratory events, or private parties.</p>
+          </div>
+          <div>
+            <div class="flex justify-between items-center text-sm font-bold text-wine dark:text-gold border-t border-black/10 dark:border-white/10 pt-4 mt-6">
+              <span>Custom Flight</span>
+              <span>Contact Us</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOD & WINE PAIRINGS -->
+  <section class="py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+        <!-- IMAGE -->
+        <div class="relative">
+          <img src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?q=80&w=987&auto=format&fit=crop" class="rounded-[40px] h-[600px] object-cover w-full" alt="Food and Wine Pairing">
+          <div class="hidden sm:block absolute -bottom-10 -right-10 bg-white dark:bg-card rounded-[32px] p-8 shadow-2xl w-64 border border-black/5 dark:border-white/5">
+            <h3 class="font-heading text-5xl text-wine dark:text-gold">Artisanal</h3>
+            <p class="text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">Local cheeses and fine charcuterie paired specifically for you.</p>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div>
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Gourmet Pairings</span>
+          <h2 class="font-heading text-5xl leading-tight mt-5">Perfect Harmonies</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mt-8">
+            Experience the culinary chemistry when premium wine is matched with fine charcuterie, local cheeses, and hot tapas.
+          </p>
+
+          <div class="space-y-8 mt-12">
+            <!-- PAIRING 1 -->
+            <div class="flex gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center shrink-0">
+                <i data-lucide="cheese"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Curated Artisanal Cheese Board</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Aged gouda, sharp blue, and triple cream brie served with wildflower honey. Recommended with: <i>Sommerfeld Riesling</i> or <i>Old Vine Zinfandel</i>.</p>
+              </div>
+            </div>
+
+            <!-- PAIRING 2 -->
+            <div class="flex gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center shrink-0">
+                <i data-lucide="beef"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Tuscan Charcuterie Display</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">Prosciutto di Parma, dry-aged salami, and coppa served with house pickles. Recommended with: <i>Brunello di Montalcino</i> or <i>Château Grand Reserve</i>.</p>
+              </div>
+            </div>
+
+            <!-- PAIRING 3 -->
+            <div class="flex gap-5">
+              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center shrink-0">
+                <i data-lucide="croissant"></i>
+              </div>
+              <div>
+                <h4 class="font-semibold text-lg">Dark Chocolate & Fig Tapas</h4>
+                <p class="text-gray-600 dark:text-gray-400 mt-1">72% Single-origin cocoa shells filled with fresh honey-fig jam. Recommended with: <i>Royal Cask Reserve Syrah</i>.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UPCOMING EVENTS -->
+  <section class="py-28 bg-white dark:bg-[#120f0f]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="flex flex-wrap justify-between items-end gap-6 mb-16">
+        <div>
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Community Calendar</span>
+          <h2 class="font-heading text-5xl mt-5">Upcoming Wine Events</h2>
+        </div>
+        <a href="./contact.html" class="border border-black/10 dark:border-white/10 px-6 py-3 rounded-full hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black">
+          Inquire About Private Events
+        </a>
+      </div>
+
+      <div class="space-y-6">
+        <!-- EVENT 1 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:shadow-md transition">
+          <div class="flex items-center gap-6">
+            <div class="bg-wine text-white rounded-2xl p-4 text-center w-20 shrink-0">
+              <span class="block text-2xl font-bold font-heading">18</span>
+              <span class="block text-xs uppercase tracking-widest font-semibold">Jun</span>
+            </div>
+            <div>
+              <span class="bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Tasting Event</span>
+              <h3 class="font-heading text-3xl mt-2">Bordeaux Vintage Masterclass</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Experience a side-by-side comparison of 6 spectacular vintage reserves guided by Daniel Foster.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-lg font-bold text-wine dark:text-gold">$85 / ticket</span>
+            <a href="./booking.html" class="bg-wine hover:bg-[#54181c] text-white px-6 py-3 rounded-full text-sm font-medium">Book Tickets</a>
+          </div>
+        </div>
+
+        <!-- EVENT 2 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:shadow-md transition">
+          <div class="flex items-center gap-6">
+            <div class="bg-wine text-white rounded-2xl p-4 text-center w-20 shrink-0">
+              <span class="block text-2xl font-bold font-heading">27</span>
+              <span class="block text-xs uppercase tracking-widest font-semibold">Jun</span>
+            </div>
+            <div>
+              <span class="bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Live Music</span>
+              <h3 class="font-heading text-3xl mt-2">Candlelit Jazz & Rosé Night</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Enjoy a premium glass of Provence Rosé accompanied by smooth live acoustic jazz in our outdoor courtyard.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-lg font-bold text-wine dark:text-gold">Free Entry</span>
+            <a href="./booking.html" class="bg-wine hover:bg-[#54181c] text-white px-6 py-3 rounded-full text-sm font-medium">Reserve Table</a>
+          </div>
+        </div>
+
+        <!-- EVENT 3 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-3xl p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 hover:shadow-md transition">
+          <div class="flex items-center gap-6">
+            <div class="bg-wine text-white rounded-2xl p-4 text-center w-20 shrink-0">
+              <span class="block text-2xl font-bold font-heading">05</span>
+              <span class="block text-xs uppercase tracking-widest font-semibold">Jul</span>
+            </div>
+            <div>
+              <span class="bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">Pairing Class</span>
+              <h3 class="font-heading text-3xl mt-2">Cheese & Wine Pairing Workshop</h3>
+              <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Learn from head cheesemongers and sommeliers on how to map structural tannins to cheese milk profiles.</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 w-full md:w-auto justify-between md:justify-end">
+            <span class="text-lg font-bold text-wine dark:text-gold">$70 / ticket</span>
+            <a href="./booking.html" class="bg-wine hover:bg-[#54181c] text-white px-6 py-3 rounded-full text-sm font-medium">Book Tickets</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-28">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="relative rounded-[42px] overflow-hidden p-16 lg:p-24">
+        <!-- BG -->
+        <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=1200&q=80" class="absolute inset-0 w-full h-full object-cover" alt="Wine Bar Table">
+        <div class="absolute inset-0 bg-black/80"></div>
+
+        <!-- CONTENT -->
+        <div class="relative z-10 text-center max-w-3xl mx-auto">
+          <span class="uppercase tracking-[0.3em] text-gold text-sm">Experience Vintara</span>
+          <h2 class="font-heading text-5xl md:text-7xl text-white leading-tight mt-6">Book Your Tasting Reservation</h2>
+          <p class="text-gray-300 text-lg leading-relaxed mt-8">Join us at the wine bar or reserve an educational sommelier guided flight.</p>
+          <a href="./booking.html">
+            <button class="mt-10 bg-wine hover:bg-[#54181c] text-white px-8 py-4 rounded-full shadow-2xl shadow-wine/20">
+              Reserve Your Table
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-[#0d0a0a] border-t footer-divider pt-20 pb-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
+        <!-- COL 1 — BRAND -->
+        <div class="lg:col-span-1">
+          <a href="../index.html" class="flex items-center gap-3 font-heading text-3xl tracking-wide">
+            <img src="../assets/images/brand-logo.png" alt="Vintara" style="width:42px;height:auto;">
+            <span>Vintara</span>
+          </a>
+          <p class="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mt-5">
+            Curated collections, candlelit evenings, and rare vintages — crafted for the most discerning palate.
+          </p>
+        </div>
+
+        <!-- COL 2 — QUICK LINKS -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">Quick Links</h4>
+          <ul class="space-y-4 text-sm text-gray-600 dark:text-gray-400">
+            <li><a href="../index.html" class="hover:text-wine dark:hover:text-gold transition-colors">Home</a></li>
+            <li><a href="./home.html" class="hover:text-wine dark:hover:text-gold transition-colors">Home 2</a></li>
+            <li><a href="./about.html" class="hover:text-wine dark:hover:text-gold transition-colors">About Us</a></li>
+            <li><a href="./service.html" class="hover:text-wine dark:hover:text-gold transition-colors">Services</a></li>
+            <li><a href="./wine-menu.html" class="hover:text-wine dark:hover:text-gold transition-colors">Wine Menu</a></li>
+            <li><a href="./blog.html" class="hover:text-wine dark:hover:text-gold transition-colors">Blog</a></li>
+            <li><a href="./contact.html" class="hover:text-wine dark:hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- COL 3 — CONTACT -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">Contact</h4>
+          <ul class="space-y-5 text-sm text-gray-600 dark:text-gray-400">
+            <li class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="text-wine dark:text-gold mt-0.5 shrink-0" style="width:16px;height:16px;"></i>
+              <span>14 Rue du Vin, Bordeaux<br>FR-33000, France</span>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="phone" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="tel:+33556001234" class="hover:text-wine dark:hover:text-gold transition-colors">+33 556 001 234</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="mail" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <a href="mailto:hello@vintara.com" class="hover:text-wine dark:hover:text-gold transition-colors">hello@vintara.com</a>
+            </li>
+            <li class="flex items-center gap-3">
+              <i data-lucide="clock" class="text-wine dark:text-gold shrink-0" style="width:16px;height:16px;"></i>
+              <span>Mon–Sat &nbsp;5 PM – 1 AM</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- COL 4 — NEWSLETTER -->
+        <div>
+          <h4 class="font-semibold text-sm uppercase tracking-[0.2em] text-wine dark:text-gold mb-6">Stay In The Know</h4>
+          <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">Subscribe for exclusive events, new arrivals &amp; sommelier picks.</p>
+          <form onsubmit="return false;" class="space-y-3">
+            <input type="email" placeholder="Your email address" class="footer-newsletter-input">
+            <button type="submit" class="w-full bg-wine hover:bg-[#54181c] text-white text-sm font-medium py-3 rounded-full transition-colors">Subscribe</button>
+          </form>
+          <p class="text-xs text-gray-400 dark:text-gray-500 mt-4 flex items-center gap-1.5">
+            <i data-lucide="shield-check" style="width:13px;height:13px;" class="text-wine dark:text-gold"></i>
+            No spam, ever. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+
+      <!-- DIVIDER -->
+      <div class="border-t footer-divider mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-400 dark:text-gray-500">
+        <p>&copy; 2025 Vintara Wine Bar &amp; Shop. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="./privacy.html" class="hover:text-wine dark:hover:text-gold transition-colors">Privacy Policy</a>
+          <a href="./terms.html" class="hover:text-wine dark:hover:text-gold transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script>
+    // INITIALIZE ICONS & MOBILE MENU & THEME TOGGLE
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Check and set initial theme
+    if (
+      localStorage.theme === 'dark' ||
+      (
+        !('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      )
+    ) {
+      html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
+    }
+
+    // Function to set toggle button icon
+    function updateThemeIcon() {
+      const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+      if (themeIcon) {
+        if (html.classList.contains('dark')) {
+          themeIcon.setAttribute('data-lucide', 'sun');
+        } else {
+          themeIcon.setAttribute('data-lucide', 'moon');
+        }
+        lucide.createIcons();
+      }
+    }
+
+    // Initialize theme icon
+    if (themeToggle) {
+      updateThemeIcon();
+      
+      themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        if (html.classList.contains('dark')) {
+          localStorage.theme = 'dark';
+        } else {
+          localStorage.theme = 'light';
+        }
+        updateThemeIcon();
+      });
+    } else {
+      lucide.createIcons();
+    }
+
+    // Mobile Menu handler with icon toggling (menu <-> x)
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'x');
+            lucide.createIcons();
+          }
+        } else {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      });
+    }
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

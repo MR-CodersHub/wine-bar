@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -151,30 +151,30 @@
 
 <body class="bg-cream dark:bg-darkbg text-black dark:text-white overflow-x-hidden">
 
-  <!-- NAVBAR -->
+    <!-- NAVBAR -->
   <header class="fixed top-0 w-full z-50">
 
     <nav class="glass bg-white/70 dark:bg-black/20 border-b border-black/5 dark:border-white/10">
 
-      <div class="max-w-7xl mx-auto px-6 lg:px-10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-4 sm:px-6 lg:px-10">
 
         <div class="h-20 flex items-center justify-between">
 
           <!-- LOGO -->
           <a href="../index.html"
-            class="font-heading text-4xl tracking-wide flex items-center gap-2">
-            <img src="../assets/images/brand-logo.png" alt="brand-logo" style="width:44px;height:auto;">
+            class="font-heading text-2xl sm:text-3xl md:text-4xl tracking-wide flex items-center gap-1.5 sm:gap-2 shrink-0">
+            <img src="../assets/images/brand-logo.png" alt="brand-logo" class="w-8 sm:w-10 md:w-[44px] h-auto shrink-0">
             <span>Vintara</span>
           </a>
 
           <!-- MENU -->
-          <div class="hidden lg:flex items-center gap-10 text-sm">
+          <div class="hidden lg:flex items-center gap-6 xl:gap-10 text-sm">
 
-            <a href="../index.html" class="nav-link">
+            <a href="../index.html" class="nav-link ">
               Home
             </a>
 
-            <a href="./home.html" class="nav-link">
+            <a href="./home.html" class="nav-link ">
               Home 2
             </a>
 
@@ -182,39 +182,37 @@
               About
             </a>
 
-            <a href="./service.html" class="nav-link">
+            <a href="./service.html" class="nav-link ">
               Service
             </a>
 
-            <a href="./blog.html" class="nav-link">
+            <a href="./wine-menu.html" class="nav-link ">
+              Wine Menu
+            </a>
+
+            <a href="./blog.html" class="nav-link ">
               Blog
             </a>
 
-            <a href="./contact.html" class="nav-link">
+            <a href="./contact.html" class="nav-link ">
               Contact
             </a>
 
           </div>
 
           <!-- RIGHT -->
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2 sm:gap-4 shrink-0">
 
             <!-- TOGGLE -->
             <button id="themeToggle"
-              class="w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105">
-              <i data-lucide="moon"></i>
+              class="w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center hover:scale-105 shrink-0">
+              <i data-lucide="moon" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
-
-            <!-- LOGIN BUTTON -->
-            <a href="./login.html"
-              class="hidden md:block bg-wine hover:bg-[#54181c] text-white px-7 py-3 rounded-full text-sm font-medium">
-              Login
-            </a>
 
             <!-- MOBILE MENU BTN -->
             <button id="menuBtn"
-              class="lg:hidden w-11 h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center">
-              <i data-lucide="menu"></i>
+              class="lg:hidden w-10 h-10 sm:w-11 sm:h-11 rounded-full border border-black/10 dark:border-white/10 flex items-center justify-center shrink-0">
+              <i data-lucide="menu" class="w-4 h-4 sm:w-5 sm:h-5"></i>
             </button>
 
           </div>
@@ -231,12 +229,13 @@
 
       <div class="px-6 py-6 flex flex-col gap-5 text-sm">
 
-        <a href="../index.html" class="mobile-nav-link">Home</a>
-        <a href="./home.html" class="mobile-nav-link">Home 2</a>
+        <a href="../index.html" class="mobile-nav-link ">Home</a>
+        <a href="./home.html" class="mobile-nav-link ">Home 2</a>
         <a href="./about.html" class="mobile-nav-link active">About</a>
-        <a href="./service.html" class="mobile-nav-link">Service</a>
-        <a href="./blog.html" class="mobile-nav-link">Blog</a>
-        <a href="./contact.html" class="mobile-nav-link">Contact</a>
+        <a href="./service.html" class="mobile-nav-link ">Service</a>
+        <a href="./wine-menu.html" class="mobile-nav-link ">Wine Menu</a>
+        <a href="./blog.html" class="mobile-nav-link ">Blog</a>
+        <a href="./contact.html" class="mobile-nav-link ">Contact</a>
 
       </div>
 
@@ -245,7 +244,7 @@
   </header>
 
   <!-- HERO -->
-  <section class="relative min-h-[85vh] overflow-hidden flex items-center">
+  <section class="relative min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] sm:min-h-[50vh] sm:min-h-[55vh] md:min-h-[60vh] sm:min-h-[70vh] md:min-h-[75vh] md:min-h-[85vh] overflow-hidden flex items-center">
 
     <!-- BG -->
     <div class="absolute inset-0">
@@ -263,7 +262,7 @@
     <div class="absolute top-20 right-20 w-[350px] h-[350px] rounded-full bg-wine/30 blur-circle"></div>
 
     <!-- CONTENT -->
-    <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-10 w-full">
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-10 w-full pt-28 pb-12 sm:pt-32 sm:pb-20 md:py-32">
 
       <div class="max-w-3xl">
 
@@ -273,7 +272,7 @@
 
         </span>
 
-        <h1 class="font-heading text-7xl md:text-8xl text-white leading-[0.9] mt-8">
+        <h1 class="font-heading text-4xl sm:text-6xl md:text-8xl text-white leading-[1.1] sm:leading-[0.95] md:leading-[0.9] mt-8">
 
           Crafted Through
           <span class="italic text-gold">
@@ -295,10 +294,75 @@
 
   </section>
 
-  <!-- STORY -->
+  <!-- STATS -->
+  <section class="py-20 bg-white dark:bg-[#120f0f]">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <!-- ITEM -->
+        <div class="bg-cream dark:bg-card rounded-[32px] p-8 text-center border border-black/5 dark:border-white/5">
+
+          <h3 class="font-heading text-5xl md:text-6xl text-wine dark:text-gold font-bold">
+            500+
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-3 uppercase tracking-wider font-semibold">
+            Wines Curated
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-cream dark:bg-card rounded-[32px] p-8 text-center border border-black/5 dark:border-white/5">
+
+          <h3 class="font-heading text-5xl md:text-6xl text-wine dark:text-gold font-bold">
+            10K+
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-3 uppercase tracking-wider font-semibold">
+            Bottles Sold
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-cream dark:bg-card rounded-[32px] p-8 text-center border border-black/5 dark:border-white/5">
+
+          <h3 class="font-heading text-5xl md:text-6xl text-wine dark:text-gold font-bold">
+            50+
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-3 uppercase tracking-wider font-semibold">
+            Tasting Events Hosted
+          </p>
+
+        </div>
+
+        <!-- ITEM -->
+        <div class="bg-cream dark:bg-card rounded-[32px] p-8 text-center border border-black/5 dark:border-white/5">
+
+          <h3 class="font-heading text-5xl md:text-6xl text-wine dark:text-gold font-bold">
+            1,000+
+          </h3>
+
+          <p class="text-gray-600 dark:text-gray-400 text-xs md:text-sm mt-3 uppercase tracking-wider font-semibold">
+            Happy Customers
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- OUR STORY -->
   <section class="py-28">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <div class="grid lg:grid-cols-2 gap-20 items-center">
 
@@ -306,89 +370,54 @@
         <div class="relative">
 
           <img
-            src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?q=80&w=1974&auto=format&fit=crop"
-            class="rounded-[40px] h-[700px] object-cover w-full"
-            alt="">
+            src="https://images.unsplash.com/photo-1528360983277-13d401cdc186?q=80&w=1974&auto=format&fit=crop"
+            class="rounded-[40px] h-[650px] object-cover w-full shadow-2xl"
+            alt="Wine Cellar Reserve">
 
-          <!-- FLOAT -->
-          <div class="absolute -bottom-10 -right-10 bg-white dark:bg-card rounded-[32px] p-8 shadow-2xl w-64">
-
-            <h3 class="font-heading text-6xl text-wine dark:text-gold">
-              25+
-            </h3>
-
-            <p class="text-gray-600 dark:text-gray-400 mt-3 leading-relaxed">
-
-              Years of luxury wine expertise and curated experiences.
-
-            </p>
-
-          </div>
-
+        
         </div>
 
         <!-- CONTENT -->
         <div>
 
-          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm">
-
-            Who We Are
-
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">
+            Our Legacy
           </span>
 
-          <h2 class="font-heading text-6xl leading-tight mt-5">
-
-            A Luxury
-            Wine Destination
-
+          <h2 class="font-heading text-5xl leading-tight mt-5">
+            The Journey of Vintara
           </h2>
 
-          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mt-8">
-
-            Founded with a vision to redefine wine culture,
-            Vintara combines premium collections,
-            elegant interiors, and unforgettable hospitality.
-
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-8">
+            Vintara was founded in 2012 by collector Marcus Reed. Driven by an obsession with the complex geological terroirs of old-world European vineyards, Marcus envisioned a space that combined the cozy, educational atmosphere of a Parisian cave à manger with the premium curation of an international wine boutique.
           </p>
 
-          <p class="text-gray-600 dark:text-gray-400 text-lg leading-relaxed mt-6">
-
-            Every bottle, every tasting, and every evening
-            is carefully curated to create timeless moments
-            for collectors and enthusiasts alike.
-
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-6">
+            What started as a small, candlelit shop offering a dozen labels has grown into a renowned bar and boutique. Over the years, we have remained committed to sustainable practices, showcasing rare micro-allocation bottles, and building a local community of collectors.
           </p>
 
           <!-- FEATURES -->
-          <div class="grid sm:grid-cols-2 gap-6 mt-12">
+          <div class="grid sm:grid-cols-2 gap-6 mt-10">
 
             <!-- ITEM -->
-            <div class="bg-white dark:bg-card rounded-[28px] p-7 border border-black/5 dark:border-white/5">
+            <div class="bg-white dark:bg-card rounded-[28px] p-6 border border-black/5 dark:border-white/5">
 
-              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
-
-                <i data-lucide="wine"></i>
-
+              <div class="w-12 h-12 rounded-xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+                <i data-lucide="shield-check" class="w-6 h-6"></i>
               </div>
 
-              <h4 class="font-heading text-3xl mt-6">
-                Rare Collections
-              </h4>
+              <h4 class="font-heading text-2xl mt-4">Sommelier Certified</h4>
 
             </div>
 
             <!-- ITEM -->
-            <div class="bg-white dark:bg-card rounded-[28px] p-7 border border-black/5 dark:border-white/5">
+            <div class="bg-white dark:bg-card rounded-[28px] p-6 border border-black/5 dark:border-white/5">
 
-              <div class="w-14 h-14 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
-
-                <i data-lucide="gem"></i>
-
+              <div class="w-12 h-12 rounded-xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center">
+                <i data-lucide="award" class="w-6 h-6"></i>
               </div>
 
-              <h4 class="font-heading text-3xl mt-6">
-                Luxury Experience
-              </h4>
+              <h4 class="font-heading text-2xl mt-4">Award-Winning List</h4>
 
             </div>
 
@@ -402,63 +431,61 @@
 
   </section>
 
-  <!-- STATS -->
-  <section class="py-28 bg-white dark:bg-[#120f0f]">
+  <!-- WINE SELECTION PROCESS & SOURCING PHILOSOPHY -->
+  <section class="py-28 bg-white dark:bg-[#120f0f] fade-section">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid lg:grid-cols-2 gap-20 items-start">
 
-        <!-- ITEM -->
-        <div class="bg-cream dark:bg-card rounded-[32px] p-10 text-center border border-black/5 dark:border-white/5">
-
-          <h3 class="font-heading text-6xl text-wine dark:text-gold">
-            12K+
-          </h3>
-
-          <p class="text-gray-600 dark:text-gray-400 mt-4">
-            Happy Customers
+        <!-- SELECTION PROCESS -->
+        <div>
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Curation Standards</span>
+          <h2 class="font-heading text-5xl mt-5">Our Selection Process</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-6">
+            Every vintage featured on our shelves undergoes a rigorous evaluation process. Our team of certified sommeliers conducts monthly blind tasting evaluations to assess structural balance, age potential, and representation of place.
           </p>
-
+          <div class="mt-8 space-y-6">
+            <div class="flex gap-4">
+              <span class="text-wine dark:text-gold font-heading text-3xl font-bold">01</span>
+              <div>
+                <h4 class="font-semibold text-lg">Sensory Evaluation</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">We evaluate dry extract levels, structural acidity, and complexity to ensure premium flavor profiles.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-wine dark:text-gold font-heading text-3xl font-bold">02</span>
+              <div>
+                <h4 class="font-semibold text-lg">Small-Batch Exclusivity</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">We prioritize wineries producing fewer than 10,000 cases annually to ensure rare collections.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
-        <!-- ITEM -->
-        <div class="bg-cream dark:bg-card rounded-[32px] p-10 text-center border border-black/5 dark:border-white/5">
-
-          <h3 class="font-heading text-6xl text-wine dark:text-gold">
-            250+
-          </h3>
-
-          <p class="text-gray-600 dark:text-gray-400 mt-4">
-            Premium Wines
+        <!-- SOURCING PHILOSOPHY -->
+        <div>
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Environmental Respect</span>
+          <h2 class="font-heading text-5xl mt-5">Sourcing Philosophy</h2>
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-6">
+            We partner with independent, artisan grape growers who utilize biodynamic, organic, or low-intervention farming methods. We respect the land, avoiding synthetic inputs and prioritizing hand-harvested grapes.
           </p>
-
-        </div>
-
-        <!-- ITEM -->
-        <div class="bg-cream dark:bg-card rounded-[32px] p-10 text-center border border-black/5 dark:border-white/5">
-
-          <h3 class="font-heading text-6xl text-wine dark:text-gold">
-            25+
-          </h3>
-
-          <p class="text-gray-600 dark:text-gray-400 mt-4">
-            Years Experience
-          </p>
-
-        </div>
-
-        <!-- ITEM -->
-        <div class="bg-cream dark:bg-card rounded-[32px] p-10 text-center border border-black/5 dark:border-white/5">
-
-          <h3 class="font-heading text-6xl text-wine dark:text-gold">
-            4.9
-          </h3>
-
-          <p class="text-gray-600 dark:text-gray-400 mt-4">
-            Customer Rating
-          </p>
-
+          <div class="mt-8 space-y-6">
+            <div class="flex gap-4">
+              <span class="text-wine dark:text-gold font-heading text-3xl font-bold">03</span>
+              <div>
+                <h4 class="font-semibold text-lg">Boutique Collaborations</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">We maintain personal relationships with growers in Piedmont, Bordeaux, and Marlborough, ensuring fair trading practices.</p>
+              </div>
+            </div>
+            <div class="flex gap-4">
+              <span class="text-wine dark:text-gold font-heading text-3xl font-bold">04</span>
+              <div>
+                <h4 class="font-semibold text-lg">Sustainable Logistics</h4>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">We utilize temperature-controlled logistics that reduce carbon emissions and preserve bottle integrity.</p>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -467,10 +494,101 @@
 
   </section>
 
+  <!-- TASTING & CUSTOMER EXPERIENCE PHILOSOPHIES -->
+  <section class="py-28 fade-section">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <div class="grid lg:grid-cols-2 gap-20 items-center">
+
+        <!-- CONTENT -->
+        <div class="lg:order-2">
+
+          <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Hospitality Culture</span>
+          
+          <h2 class="font-heading text-5xl leading-tight mt-5">Tasting & Atmosphere</h2>
+
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-6">
+            Our tasting philosophy is educational and accessible. We eliminate pretension, inviting guests to explore and learn through sensory games, regional maps, and informal flights.
+          </p>
+
+          <p class="text-gray-600 dark:text-gray-400 text-base leading-relaxed mt-4">
+            The Vintara customer experience is designed to feel like an extension of a private cellar. From curated candlelit acoustics to customized recommendations from our sommeliers, we prioritize warm hospitality and wine education.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-4">
+            <span class="bg-wine/5 dark:bg-wine/25 text-wine dark:text-gold text-xs uppercase px-3 py-1.5 rounded-full font-semibold">Interactive Flights</span>
+            <span class="bg-wine/5 dark:bg-wine/25 text-wine dark:text-gold text-xs uppercase px-3 py-1.5 rounded-full font-semibold">Candlelit Acoustics</span>
+            <span class="bg-wine/5 dark:bg-wine/25 text-wine dark:text-gold text-xs uppercase px-3 py-1.5 rounded-full font-semibold">Custom Recommendations</span>
+          </div>
+
+        </div>
+
+        <!-- IMAGE -->
+        <div class="relative">
+          <img
+            src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=800&q=80"
+            class="rounded-[40px] h-[580px] object-cover w-full shadow-xl"
+            alt="Customer Wine Pouring Session">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- WHAT MAKES US UNIQUE -->
+  <section class="py-28 bg-white dark:bg-[#120f0f] fade-section">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
+
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <span class="uppercase tracking-[0.3em] text-wine dark:text-gold text-sm font-semibold">Differentiation</span>
+        <h2 class="font-heading text-5xl mt-5">What Makes Us Unique</h2>
+        <p class="text-gray-600 dark:text-gray-400 mt-4">Our combination of curation, community engagement, and specialized programs defines our wine house culture.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+
+        <!-- UNIQUE 1 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+            <i data-lucide="shield-check" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-3xl mb-3">Expert Micro-Curation</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">We focus on hard-to-find imports and rare allocations. 40% of our catalogue is exclusive to Vintara in this region.</p>
+        </div>
+
+        <!-- UNIQUE 2 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+            <i data-lucide="award" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-3xl mb-3">Accessible Education</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">No snobbishness here. We map flavor profiles to real-world descriptors, making tasting fun and understandable.</p>
+        </div>
+
+        <!-- UNIQUE 3 -->
+        <div class="bg-cream dark:bg-card border border-black/5 dark:border-white/5 rounded-[32px] p-8 shadow-sm">
+          <div class="w-12 h-12 rounded-2xl bg-wine/10 dark:bg-wine/20 text-wine dark:text-gold flex items-center justify-center mb-6">
+            <i data-lucide="users" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-heading text-3xl mb-3">Community Hub</h3>
+          <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">We gather local enthusiasts, hosting acoustic nights, cheesemonger pairing sessions, and quarterly club dinners.</p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
   <!-- TEAM -->
   <section class="py-28">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <!-- TITLE -->
       <div class="text-center max-w-2xl mx-auto">
@@ -597,7 +715,7 @@
   <!-- TESTIMONIALS -->
   <section class="py-28 bg-white dark:bg-[#120f0f]">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <!-- TITLE -->
       <div class="text-center max-w-2xl mx-auto">
@@ -754,7 +872,7 @@
   <!-- CTA -->
   <section class="py-28">
 
-    <div class="max-w-6xl mx-auto px-6 lg:px-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <div class="relative rounded-[42px] overflow-hidden p-16 lg:p-24">
 
@@ -775,7 +893,7 @@
 
           </span>
 
-          <h2 class="font-heading text-6xl md:text-7xl text-white leading-tight mt-6">
+          <h2 class="font-heading text-5xl md:text-7xl text-white leading-tight mt-6">
 
             Timeless Wine
             Experiences
@@ -807,7 +925,7 @@
   <!-- FOOTER -->
   <footer class="bg-white dark:bg-[#0d0a0a] border-t footer-divider pt-20 pb-10">
 
-    <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
 
       <!-- TOP GRID -->
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-14">
@@ -935,21 +1053,13 @@
   <!-- SCRIPT -->
   <script>
 
-    lucide.createIcons();
-    // MOBILE MENU
-    const menuBtn = document.getElementById('menuBtn');
-    const mobileMenu = document.getElementById('mobileMenu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-    }
-
-    // DARK MODE
+    // INITIALIZE ICONS & MOBILE MENU & THEME TOGGLE
     const html = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
 
-    // LOAD
+    // Check and set initial theme
     if (
       localStorage.theme === 'dark' ||
       (
@@ -958,19 +1068,74 @@
       )
     ) {
       html.classList.add('dark');
+    } else {
+      html.classList.remove('dark');
     }
 
-    // TOGGLE
-    themeToggle.addEventListener('click', () => {
-
-      html.classList.toggle('dark');
-
-      if(html.classList.contains('dark')){
-        localStorage.theme = 'dark';
-      } else {
-        localStorage.theme = 'light';
+    // Function to set toggle button icon
+    function updateThemeIcon() {
+      const themeIcon = themeToggle ? themeToggle.querySelector('i') : null;
+      if (themeIcon) {
+        if (html.classList.contains('dark')) {
+          themeIcon.setAttribute('data-lucide', 'sun');
+        } else {
+          themeIcon.setAttribute('data-lucide', 'moon');
+        }
+        lucide.createIcons();
       }
+    }
 
+    // Initialize theme icon
+    if (themeToggle) {
+      updateThemeIcon();
+      
+      themeToggle.addEventListener('click', () => {
+        html.classList.toggle('dark');
+        if (html.classList.contains('dark')) {
+          localStorage.theme = 'dark';
+        } else {
+          localStorage.theme = 'light';
+        }
+        updateThemeIcon();
+      });
+    } else {
+      lucide.createIcons();
+    }
+
+    // Mobile Menu handler with icon toggling (menu <-> x)
+    if (menuBtn && mobileMenu) {
+      menuBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.contains('hidden');
+        if (isHidden) {
+          mobileMenu.classList.remove('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'x');
+            lucide.createIcons();
+          }
+        } else {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn.querySelector('i');
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      });
+    }
+
+    // Close mobile menu on window resize
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) { // lg breakpoint
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+          const menuIcon = menuBtn ? menuBtn.querySelector('i') : null;
+          if (menuIcon) {
+            menuIcon.setAttribute('data-lucide', 'menu');
+            lucide.createIcons();
+          }
+        }
+      }
     });
 
   </script>
